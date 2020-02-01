@@ -326,10 +326,15 @@ public class EnemyLogic : MonoBehaviour
         return player.transform.position;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (enemyType==EnemyType.Charger&&collision.gameObject.tag == "Player") Destroy(gameObject);
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (enemyType == EnemyType.Charger && collision.gameObject.tag == "Player")
+    //    {
+    //        GM.gm.player.GetComponent<PlayerController>().StartSpinning();
+    //        Destroy(gameObject);
+            
+    //    }
+    //}
 
     private void OnDrawGizmos()
     {
@@ -337,5 +342,6 @@ public class EnemyLogic : MonoBehaviour
         //Gizmos.DrawSphere(transform.position, attackRadius);
         Gizmos.DrawRay(transform.position,m_target-transform.position);
     }
+
 
 }

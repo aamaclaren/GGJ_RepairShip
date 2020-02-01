@@ -44,4 +44,20 @@ public class PlayerController : MonoBehaviour
             transform.RotateAround(transform.position, -transform.up, Time.deltaTime * rotationSpeed);
         }
     }
+
+    public IEnumerator Spinning()
+    {
+        Debug.Log("hit");
+        yield return new WaitForSeconds(3f);
+        Debug.Log("freeze");
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
+        yield return new WaitForSeconds(.1f);
+        rb.constraints = RigidbodyConstraints.None;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+    }
+
+    public void StartSpinning()
+    {
+        StartCoroutine(Spinning());
+    }
 }
