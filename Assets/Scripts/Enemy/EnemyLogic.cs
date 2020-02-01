@@ -85,8 +85,12 @@ public class EnemyLogic : MonoBehaviour
         m_state = EnemyState.Idle;
         m_rb = GetComponent<Rigidbody>();
         m_shooting = GetComponent<ShootingLogic>();
-        m_navAgent = GetComponent<NavMeshAgent>();
-        m_navAgent.speed = m_speed;
+        if (enemyType == EnemyType.Shooter)
+        {
+            m_navAgent = GetComponent<NavMeshAgent>();
+            m_navAgent.speed = m_speed;
+            m_navAgent.isStopped = true;
+        }
 
         m_AimingtimeCounter = 0;
         m_originSpeed = m_speed;
@@ -97,7 +101,7 @@ public class EnemyLogic : MonoBehaviour
         m_nextShootingTimeBtwMoving = m_ShootingTimeBtwMoving;
         m_ShootingTimeCounter = 0;
 
-        m_navAgent.isStopped = true;
+
 
 
     }
@@ -121,7 +125,8 @@ public class EnemyLogic : MonoBehaviour
 
     private void charger_behavior()
     {
-
+        Debug.Log(m_state);
+        //Debug.Log(m_slowdown);
         switch (m_state) {
             case EnemyState.Idle:
                 if (dist_to_player <= attackRadius)
@@ -162,6 +167,7 @@ public class EnemyLogic : MonoBehaviour
 
                     transform.position = Vector3.MoveTowards(transform.position, m_target, m_speed * Time.fixedDeltaTime);
                     m_speed += m_acceleration * Time.fixedDeltaTime;
+                    Debug.Log(m_speed);
                     if ((transform.position - m_target).magnitude < 0.01f)
                     {
                         m_slowdown = true;
@@ -181,7 +187,7 @@ public class EnemyLogic : MonoBehaviour
     }
 
     private void shooter_behavior() {
-        Debug.Log(m_state);
+        //Debug.Log(m_state);
         switch (m_state)
         {
 
