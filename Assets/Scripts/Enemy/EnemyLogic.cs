@@ -26,6 +26,8 @@ public class EnemyLogic : MonoBehaviour
     //moving speed of the enemy
     [SerializeField]
     private float m_speed;
+    [SerializeField]
+    private float m_angularSpeed;
     //the moving distance at one time step
     private float m_dis;
 
@@ -86,8 +88,8 @@ public class EnemyLogic : MonoBehaviour
                 break;
             case EnemyState.Charging:
                 transform.position = Vector3.MoveTowards(transform.position,getTarget(),m_dis);
-                //Quaternion q = Quaternion.LookRotation((getTarget() - transform.position).normalized);
-                //transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 100);
+                Quaternion q = Quaternion.LookRotation((getTarget() - transform.position).normalized);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, q, m_angularSpeed);
 
                 //Debug.Log(q);
                 break;
@@ -113,8 +115,13 @@ public class EnemyLogic : MonoBehaviour
                 }
                 break;
             case EnemyState.Shooting:
+
                 if (!m_shooting.isfiring()) {
                     m_shooting.activate_fire(true);
+                }
+                else {
+                    Quaternion q = Quaternion.LookRotation((getTarget() - transform.position).normalized);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, q, m_angularSpeed);
                 }
                 break;
             default:
@@ -138,6 +145,7 @@ public class EnemyLogic : MonoBehaviour
     {
         Gizmos.color = new Color(1, 0.5f, 0.5f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRadius);
+        //Gizmos.DrawRay(transform.position,transform.forward);
     }
 
 }
