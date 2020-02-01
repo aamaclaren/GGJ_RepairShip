@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/bullet.prefab.meta
 guid: 059a7de552fa2493babbdbf628bcdee1
 PrefabImporter:
+=======
+guid: 76d969ad28ce6b94ea07c9fe2153d73d
+folderAsset: yes
+DefaultImporter:
+>>>>>>> 43cee128dadb76f8ae691dc26725c205087cbd26:Assets/Audio/Effects.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

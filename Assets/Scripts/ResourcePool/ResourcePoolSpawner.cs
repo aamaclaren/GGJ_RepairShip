@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ResourcePoolSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject prefab;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject resourcePoolObj;
     [SerializeField] int poolSize = 20;
-    [SerializeField] float spawnInterval = 3;
+    [SerializeField] float spawnInterval = 1;
+
+    [SerializeField] float minSpawRange = 5;
+    [SerializeField] float maxSpawnRange = 20;
 
     private float time;
     private IEnumerator spawnCoroutine;
@@ -15,7 +19,7 @@ public class ResourcePoolSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pool = new ResourcePool(prefab, poolSize);
+        pool = new ResourcePool(resourcePoolObj, poolSize);
     }
 
     void Update() {
@@ -27,7 +31,12 @@ public class ResourcePoolSpawner : MonoBehaviour
 
         if (time >= spawnInterval) {
             time = 0;
-            pool.Spawn(new Vector3(0, 0, 0), Quaternion.identity);
+            spawnAroundPlayer();
         }
+    }
+
+    private void spawnAroundPlayer(){
+        Vector3 spawnPosOffset = Random.insideUnitSphere * Random.Range(minSpawRange, maxSpawnRange);
+        pool.Spawn(player.transform.position + spawnPosOffset, Quaternion.identity);
     }
 }
