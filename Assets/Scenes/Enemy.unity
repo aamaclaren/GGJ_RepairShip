@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -120,6 +120,153 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: b172e2dfb15f64c4e9b1ef44a0e47bd9, type: 2}
+--- !u!1 &6823689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6823692}
+  - component: {fileID: 6823691}
+  - component: {fileID: 6823690}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &6823690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f8fb7d56d8fd94795f6d231c998cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2068411952}
+  playerCS: {fileID: 0}
+  sounds: []
+  playerHealth: 100
+  playerIsInvincible: 0
+  invincibilityTime: 1.5
+  numFlashes: 5
+--- !u!82 &6823691
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823689}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &6823692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.7341287, y: 4.5585465, z: -6.0200047}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &50820235
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +384,7 @@ MonoBehaviour:
   attackRadius: 15
   m_speed: 3
   m_acceleration: 0
-  m_angularSpeed: 5
+  m_angularSpeed: 0
   m_Aimingtime: 0
   m_MovingTimeBtwShots: 0
   m_ShootingTimeBtwMoving: 0
@@ -272,11 +419,7 @@ MonoBehaviour:
   coolDownTime: 1
   TimeBtwShots: 0.2
   BulletSpeed: 5
-  fire_pos:
-  - {fileID: 1180579333}
-  - {fileID: 2014687525}
-  - {fileID: 1187771143}
-  - {fileID: 1473305399}
+  fire_pos: []
   bullet: {fileID: 8658736643286421337, guid: 059a7de552fa2493babbdbf628bcdee1, type: 3}
   max_firecount: 10
 --- !u!195 &50820243
@@ -695,9 +838,9 @@ MonoBehaviour:
   enemyType: 0
   attackRadius: 20
   m_speed: 5
-  m_acceleration: 15
-  m_angularSpeed: 3
-  m_Aimingtime: 1
+  m_acceleration: 0
+  m_angularSpeed: 0
+  m_Aimingtime: 0
   m_MovingTimeBtwShots: 0
   m_ShootingTimeBtwMoving: 0
 --- !u!114 &1102945003
@@ -1254,9 +1397,7 @@ MonoBehaviour:
   coolDownTime: 0.1
   TimeBtwShots: 0.05
   BulletSpeed: 20
-  fire_pos:
-  - {fileID: 475210724}
-  - {fileID: 1666433739}
+  fire_pos: []
   bullet: {fileID: 8658736643286421337, guid: 059a7de552fa2493babbdbf628bcdee1, type: 3}
   max_firecount: 3
 --- !u!114 &2010265433
@@ -1275,10 +1416,10 @@ MonoBehaviour:
   attackRadius: 15
   m_speed: 7
   m_acceleration: 0
-  m_angularSpeed: 10
-  m_Aimingtime: 0.3
-  m_MovingTimeBtwShots: 1
-  m_ShootingTimeBtwMoving: 1
+  m_angularSpeed: 0
+  m_Aimingtime: 0
+  m_MovingTimeBtwShots: 0
+  m_ShootingTimeBtwMoving: 0
 --- !u!136 &2010265434
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1572,7 +1713,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068411952}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcd119648a7554ba69ba992dabafd6d2, type: 3}
   m_Name: 
@@ -1600,7 +1741,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068411952}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5483b464a079eee42b1842ed999c82ef, type: 3}
   m_Name: 
@@ -1608,4 +1749,3 @@ MonoBehaviour:
   speed: 10
   rotationSpeed: 90
   maxspeed: 100
-  health: 100
