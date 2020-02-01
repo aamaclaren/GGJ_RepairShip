@@ -76,7 +76,11 @@ public class ShootingLogic : MonoBehaviour
                     {
                         firecount = 0;
                         coolDownCounter = coolDownTime;
+
+                        //need to deactivate game objects and put them back into the pool
                     }
+
+
 
                 }
 
