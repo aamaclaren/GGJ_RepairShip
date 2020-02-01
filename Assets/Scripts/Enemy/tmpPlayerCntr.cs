@@ -5,6 +5,9 @@ using UnityEngine;
 public class tmpPlayerCntr : MonoBehaviour
 {
     Rigidbody m_rb;
+    float horizontalInput;
+    float verticalInput;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,11 @@ public class tmpPlayerCntr : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        m_rb.AddForce(10*new Vector3(horizontalInput, 0, verticalInput));
+    }
+
+    private void FixedUpdate()
+    {
+        m_rb.AddForce(10 * (verticalInput * transform.forward));
+        m_rb.AddTorque(5 * (horizontalInput * Vector3.up));
     }
 }

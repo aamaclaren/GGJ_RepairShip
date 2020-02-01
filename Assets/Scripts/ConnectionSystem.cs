@@ -13,11 +13,10 @@ public class ConnectionSystem : MonoBehaviour {
 	public State currState = State.loose;
 	public int defaultHealth = 10;
 	public bool isConnectable = true;
+	public bool isShipCore = false;
 
 	private int health;
 	private Rigidbody rb;
-
-	public bool takeDamageFlag = false;
 
 	// Use this for initialization
     void Awake() {
@@ -25,34 +24,32 @@ public class ConnectionSystem : MonoBehaviour {
         health = defaultHealth;
     }
 
-    void Update() {
-    	if (takeDamageFlag) {
-    		TakeDamage();
-    		takeDamageFlag = false;
-    	}
-    }
-
     // if the object touches the ship (or its connected parts), connect to it
-    private void OnCollisionEnter(Collision other) {
+    private void OnTriggerEnter(Collider other) {
     	if (isConnectable && currState == ConnectionSystem.State.loose) {
-	        ConnectionSystem cs = other.gameObject.GetComponent<ConnectionSystem>();
-	        if (cs != null && cs.currState == ConnectionSystem.State.connected) {
-	             // rb.constraints = RigidbodyConstraints.FreezeRotation;
+	        ConnectionSystem otherCS = other.gameObject.GetComponent<ConnectionSystem>();
+	        if (otherCS != null && otherCS.currState == ConnectionSystem.State.connected && GM.gm.playerCS.isConnectable) {
 	        	transform.SetParent(other.gameObject.transform);
-	        	// transform.SetParent(GM.gm.player.transform);
 	        	currState = ConnectionSystem.State.connected;
 	        	gameObject.layer = 8;
 	        	rb.velocity = Vector3.zero;
 	        	rb.angularVelocity = Vector3.zero;
 	        	rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
+	        	GM.gm.sounds[0].Play();
 	        }
 	    }
     }
 
+    // call this on a connected part, not the ship itself (if the part in question happens to be the core, this will still take care of it)
     public void TakeDamage(int damage = 100) {
     	health -= damage;
     	if (health <= 0) {
     		Disconnect();
+    	}
+    	if (isShipCore) {
+    		StartCoroutine(GM.gm.PlayerTookDamage(damage));
+    	} else if (!GM.gm.playerIsInvincible) {
+    		StartCoroutine(GM.gm.PlayerTookDamage(0));
     	}
     }
 
@@ -62,17 +59,11 @@ public class ConnectionSystem : MonoBehaviour {
     	currState = ConnectionSystem.State.loose;
     	gameObject.layer = 9;
     	rb.constraints = RigidbodyConstraints.None;
-    	foreach (Transform child in transform) {
+    	foreach (Transform child in gameObject.GetComponentsInChildren<Transform>()) {
     		child.gameObject.GetComponent<ConnectionSystem>().currState = ConnectionSystem.State.loose;
     		child.gameObject.layer = 9;
-    		// child.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     	}
     	rb.AddForce((transform.position - GM.gm.player.transform.position).normalized * 50);
-    	// foreach (Transform child in transform) {
-    	// 	child.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-    	// 	child.gameObject.GetComponent<ConnectionSystem>().isConnectable = false;
-    	// }
-    	isConnectable = false;
     	health = defaultHealth;
     }
 }

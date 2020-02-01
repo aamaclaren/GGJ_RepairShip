@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourcePool : MonoBehaviour
+public class ResourcePool
 {
     [SerializeField] private GameObject prefab;
+    private int poolSize;
     private Stack<GameObject> inactivePool;
 
     public ResourcePool(GameObject prefab, int poolSize){
         this.prefab = prefab;
+        this.poolSize = poolSize;
 
         inactivePool = new Stack<GameObject>(poolSize);
     }
@@ -39,7 +41,13 @@ public class ResourcePool : MonoBehaviour
     }
 
     public void Despawn(GameObject obj){
-        obj.SetActive(false);
-        inactivePool.Push(obj);
+        if(inactivePool.Count < poolSize) {
+            obj.SetActive(false);
+            inactivePool.Push(obj);
+        }
+        else
+        {
+            GameObject.Destroy(obj);
+        }
     }
 }
