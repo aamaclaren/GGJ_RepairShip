@@ -1751,3 +1751,7 @@ MonoBehaviour:
   speed: 10
   rotationSpeed: 90
   maxspeed: 100
+  spinning: 0
+  torqueSpeed: 2
+  maxAngularSpeed: 3
+  rotateByTorque: 1

@@ -337,6 +337,7 @@ public class EnemyLogic : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             GM.gm.player.GetComponent<PlayerController>().StartSpinning();
+            
             GM.gm.player.GetComponent<Rigidbody>().AddTorque(Vector3.up * 1000);
             //Destroy(gameObject);
             

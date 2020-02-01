@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     float horizontal;
     float vertical;
+    public bool spinning = false;
+    public float torqueSpeed = 5;
+    public int maxAngularSpeed = 3;
+    public bool rotateByTorque = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,43 +33,55 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (vertical > 0)
+        if (!spinning)
         {
-            rb.AddForce(transform.forward * speed, ForceMode.Acceleration);
-            if (rb.velocity.magnitude > maxspeed)
+            if (vertical > 0)
             {
-                rb.velocity = rb.velocity.normalized * maxspeed;
+                rb.AddForce(transform.forward * speed, ForceMode.Acceleration);
+                if (rb.velocity.magnitude > maxspeed)
+                {
+                    rb.velocity = rb.velocity.normalized * maxspeed;
+                }
+            }
+            if (horizontal != 0)
+            {
+                if (!rotateByTorque)
+                {
+                    transform.RotateAround(transform.position, transform.up * horizontal, Time.deltaTime * rotationSpeed);
+                }
+                else
+                {
+                    rb.AddTorque(torqueSpeed * (horizontal * Vector3.up));
+                    if (rb.angularVelocity.y > maxAngularSpeed)
+                    {
+                        rb.angularVelocity = Vector3.up * maxAngularSpeed;
+                    }
+                }
             }
         }
-        /*if (Input.GetAxisRaw("Horizontal") > 0)
-        {
-            //Quaternion a = new Quaternion(transform.rotation.x, transform.rotation.y + .1f, transform.rotation.z, transform.rotation.w);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, a, Time.deltaTime * rotationSpeed);
-            transform.RotateAround(transform.position, transform.up, Time.deltaTime * rotationSpeed);
-        }
-        if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-            //Quaternion a = new Quaternion(transform.rotation.x, transform.rotation.y - .1f, transform.rotation.z, transform.rotation.w);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, a, Time.deltaTime * rotationSpeed
-            transform.RotateAround(transform.position, -transform.up, Time.deltaTime * rotationSpeed);
-        }*/
-
-        if (horizontal != 0)
-        {
-            transform.RotateAround(transform.position, transform.up * horizontal, Time.deltaTime * rotationSpeed);
-        }
+        Debug.Log(rb.angularVelocity);
     }
 
     public IEnumerator Spinning()
     {
+        spinning = true;
         rb.maxAngularVelocity = 7;
         yield return new WaitForSeconds(3f);
         Debug.Log("freeze");
-        rb.constraints = RigidbodyConstraints.FreezeRotation;
+        //rb.constraints = RigidbodyConstraints.FreezeRotation;
         yield return new WaitForSeconds(.1f);
-        rb.constraints = RigidbodyConstraints.None;
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
-        //rb.maxAngularVelocity = 3;
+        if (spinning)
+        {
+            rb.angularVelocity = Vector3.zero;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints.None;
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+            rb.maxAngularVelocity = 3;
+        }
+        spinning = false;
+        
     }
 
     public void StartSpinning()
