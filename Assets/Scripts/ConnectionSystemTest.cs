@@ -12,6 +12,6 @@ public class ConnectionSystemTest : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-    	rb.AddForce(new Vector3(40,0,0));
+    	rb.AddForce(new Vector3(50,0,0));
     }
 }
