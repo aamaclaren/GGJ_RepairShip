@@ -22,7 +22,7 @@ public class Turrets : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (Input.GetMouseButton(0))
+        if (Input.GetButton("Fire1"))
         {
             Debug.Log("fired");
             if (time > firingInterval)
@@ -37,6 +37,10 @@ public class Turrets : MonoBehaviour
             {
                 line.enabled = false;
             }
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            line.enabled = false;
         }
     }
 }
