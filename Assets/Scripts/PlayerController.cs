@@ -70,11 +70,18 @@ public class PlayerController : MonoBehaviour
         Debug.Log("freeze");
         //rb.constraints = RigidbodyConstraints.FreezeRotation;
         yield return new WaitForSeconds(.1f);
-        rb.angularVelocity = Vector3.zero;
+        if (spinning)
+        {
+            rb.angularVelocity = Vector3.zero;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints.None;
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+            rb.maxAngularVelocity = 3;
+        }
         spinning = false;
-        //rb.constraints = RigidbodyConstraints.None;
-        //rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
-        //rb.maxAngularVelocity = 3;
+        
     }
 
     public void StartSpinning()
