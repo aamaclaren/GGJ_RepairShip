@@ -16,16 +16,9 @@ public class tmpPlayerCntr : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-<<<<<<< HEAD
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-=======
-    {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-
->>>>>>> 560ad42967e57600aae4b92f287daab733ffd0e1
 
     }
 
