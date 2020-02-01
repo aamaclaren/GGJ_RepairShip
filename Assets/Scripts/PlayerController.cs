@@ -58,13 +58,14 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Spinning()
     {
-        Debug.Log("hit");
+        rb.maxAngularVelocity = 7;
         yield return new WaitForSeconds(3f);
         Debug.Log("freeze");
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         yield return new WaitForSeconds(.1f);
         rb.constraints = RigidbodyConstraints.None;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+        //rb.maxAngularVelocity = 3;
     }
 
     public void StartSpinning()
