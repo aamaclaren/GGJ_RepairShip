@@ -10,6 +10,8 @@ public class GM : MonoBehaviour
     public Material hurtMaterial;
     public ConnectionSystem playerCS;
     public bool playerIsInvincible = false;
+    public float invincibilityTime = 1.5f;
+    public int numFlashes = 5;
 
     private Material defaultPlayerMaterial;
 
@@ -34,13 +36,36 @@ public class GM : MonoBehaviour
         playerIsInvincible = true;
         playerCS.isConnectable = false;
         playerHealth -= damage;
-        for (int i = 0; i < 5; i++)
+        float iTimePerFlash = invincibilityTime / (numFlashes * 2 - 1);
+        List<GameObject> meshChildren = new List<GameObject>();
+        Color meshColor = player.gameObject.GetComponent<Renderer>().material.color;
+        List<Color> meshChildrenColors = new List<Color>();
+        foreach (Transform child in player.gameObject.GetComponentsInChildren<Transform>()) {
+            if (child.gameObject.GetComponent<MeshRenderer>() != null
+                || child.gameObject.GetComponent<Renderer>() != null) {
+                meshChildren.Add(child.gameObject);
+                meshChildrenColors.Add(child.gameObject.GetComponent<Renderer>().material.color);
+            }
+        }
+        for (int i = 0; i < numFlashes; i++)
         {
-            player.gameObject.GetComponent<Renderer>().material = hurtMaterial;
-            yield return new WaitForSeconds(.12f);
-            player.gameObject.GetComponent<Renderer>().material = defaultPlayerMaterial;
-            if (i < 4) {
-                yield return new WaitForSeconds(.12f);
+            // player.gameObject.GetComponent<Renderer>().material = hurtMaterial;
+            // yield return new WaitForSeconds(iTimePerFlash);
+            // player.gameObject.GetComponent<Renderer>().material = defaultPlayerMaterial;
+            // if (i < numFlashes - 1) {
+            //     yield return new WaitForSeconds(iTimePerFlash);
+            // }
+            player.gameObject.GetComponent<Renderer>().material.color = Color.red;
+            for (int j = 0; j < meshChildren.Count; j++) {
+                meshChildren[j].GetComponent<Renderer>().material.color = Color.red;
+            }
+            yield return new WaitForSeconds(iTimePerFlash);
+            player.gameObject.GetComponent<Renderer>().material.color = meshColor;
+            for (int j = 0; j < meshChildren.Count; j++) {
+                meshChildren[j].GetComponent<Renderer>().material.color = meshChildrenColors[j];
+            }
+            if (i < numFlashes - 1) {
+                yield return new WaitForSeconds(iTimePerFlash);
             }
         }
         playerIsInvincible = false;
