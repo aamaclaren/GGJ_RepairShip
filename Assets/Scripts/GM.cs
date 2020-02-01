@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class GM : MonoBehaviour
 {
     public static GM gm;
     public GameObject player;
-    public int playerHealth = 100;
-    public Material hurtMaterial;
     public ConnectionSystem playerCS;
+    public AudioSource[] sounds;
+    public int playerHealth = 100;
+    // public Material hurtMaterial;
     public bool playerIsInvincible = false;
     public float invincibilityTime = 1.5f;
     public int numFlashes = 5;
@@ -41,8 +43,7 @@ public class GM : MonoBehaviour
         Color meshColor = player.gameObject.GetComponent<Renderer>().material.color;
         List<Color> meshChildrenColors = new List<Color>();
         foreach (Transform child in player.gameObject.GetComponentsInChildren<Transform>()) {
-            if (child.gameObject.GetComponent<MeshRenderer>() != null
-                || child.gameObject.GetComponent<Renderer>() != null) {
+            if (child.gameObject.GetComponent<MeshRenderer>() != null) { // || child.gameObject.GetComponent<Renderer>() != null
                 meshChildren.Add(child.gameObject);
                 meshChildrenColors.Add(child.gameObject.GetComponent<Renderer>().material.color);
             }

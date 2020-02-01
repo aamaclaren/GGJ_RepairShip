@@ -16,7 +16,7 @@ public class ShootingLogic : MonoBehaviour
     private float BulletSpeed;
 
     [SerializeField]
-    private Transform fire_pos;
+    private List<Transform> fire_pos;
 
     public bulletLogic bullet;
 
@@ -66,12 +66,15 @@ public class ShootingLogic : MonoBehaviour
                     //Debug.Log(ShotTimeCounter);
                     ShotTimeCounter = TimeBtwShots;
                     firecount++;
-                    bulletLogic new_bullet = Instantiate(bullet, fire_pos.position, Quaternion.Euler(90, 0, 0));
-                    new_bullet.setSpeed(BulletSpeed);
-                    new_bullet.setDir(m_player.transform.position - fire_pos.transform.position);
-                    //new_CannoBall.dir = m_player.transform.position - fire_pos.transform.position;
-                    //Debug.Log(new_CannoBall.dir);
 
+                    foreach (Transform t in fire_pos)
+                    {
+                        bulletLogic new_bullet = Instantiate(bullet, t.position, Quaternion.Euler(90, 0, 0));
+                        new_bullet.setSpeed(BulletSpeed);
+                        new_bullet.setDir(t.forward);
+                        //new_CannoBall.dir = m_player.transform.position - fire_pos.transform.position;
+                        //Debug.Log(new_CannoBall.dir);
+                    }
                     if (firecount >= max_firecount)
                     {
                         firecount = 0;

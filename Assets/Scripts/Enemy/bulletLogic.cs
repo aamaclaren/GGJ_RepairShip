@@ -7,6 +7,11 @@ public class bulletLogic : MonoBehaviour
     [SerializeField]
     private float m_speed;
 
+    [SerializeField]
+    private float m_lifetime;
+
+    private float m_startTime;
+
 
 
     private Vector3 dir;
@@ -16,12 +21,15 @@ public class bulletLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.forward = dir;
+        m_startTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position += (dir * m_speed * Time.deltaTime);
+        if (Time.time - m_startTime >= m_lifetime) destorySelf();
     }
 
     public void setDir(Vector3 thedir)
@@ -35,7 +43,13 @@ public class bulletLogic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player") Destroy(gameObject);
+    
+        if (other.tag == "Player") destorySelf();
+    }
+
+    private void destorySelf() {
+
+        if (gameObject!=null) Destroy(gameObject);
     }
 
 
