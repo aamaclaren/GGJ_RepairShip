@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
+[RequireComponent(typeof(AudioSource))]
 public class Turrets : MonoBehaviour
 {
-    private bool notYetFiring = true;
+    
     public float firingInterval = .5f;
     LineRenderer line;
     float time;
     RaycastHit hit;
     public float damage = 1;
+    AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,7 @@ public class Turrets : MonoBehaviour
         line.positionCount = 2;
         line.widthMultiplier = .2f;
         line.enabled = false;
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +34,9 @@ public class Turrets : MonoBehaviour
             if (time > firingInterval)
             {
                 line.enabled = true;
+                if (source != null) {
+                    source.Play();
+                }
                 Ray ray = new Ray(transform.position, transform.forward);
                 line.SetPosition(0, ray.origin);
                 if (Physics.Raycast(ray, out hit))
