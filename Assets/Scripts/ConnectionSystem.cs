@@ -47,7 +47,7 @@ public class ConnectionSystem : MonoBehaviour {
     	}
     	if (isShipCore) {
     		StartCoroutine(GM.gm.PlayerTookDamage(damage));
-    	} else {
+    	} else if (!GM.gm.playerIsInvincible) {
     		StartCoroutine(GM.gm.PlayerTookDamage(0));
     	}
     }
@@ -61,7 +61,6 @@ public class ConnectionSystem : MonoBehaviour {
     	foreach (Transform child in gameObject.GetComponentsInChildren<Transform>()) {
     		child.gameObject.GetComponent<ConnectionSystem>().currState = ConnectionSystem.State.loose;
     		child.gameObject.layer = 9;
-    		// child.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     	}
     	rb.AddForce((transform.position - GM.gm.player.transform.position).normalized * 50);
     	health = defaultHealth;

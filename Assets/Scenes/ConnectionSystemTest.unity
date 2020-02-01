@@ -756,9 +756,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5483b464a079eee42b1842ed999c82ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   rotationSpeed: 90
-  maxspeed: 30
+  maxspeed: 20
   health: 100
 --- !u!54 &1269737718
 Rigidbody:
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1269737711}
   playerHealth: 100
-  hurtMaterial: {fileID: 0}
+  hurtMaterial: {fileID: 2100000, guid: 7baa4e6ed13c24e8bad63d13ee5ba8ba, type: 2}
   playerCS: {fileID: 0}
 --- !u!4 &1328302165
 Transform:

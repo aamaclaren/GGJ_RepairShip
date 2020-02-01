@@ -9,8 +9,8 @@ public class GM : MonoBehaviour
     public int playerHealth = 100;
     public Material hurtMaterial;
     public ConnectionSystem playerCS;
+    public bool playerIsInvincible = false;
 
-    private bool isInvincible = false;
     private Material defaultPlayerMaterial;
 
     // Start is called before the first frame update
@@ -31,8 +31,9 @@ public class GM : MonoBehaviour
 
     public IEnumerator PlayerTookDamage(int damage = 100)
     {
-        isInvincible = true;
+        playerIsInvincible = true;
         playerCS.isConnectable = false;
+        playerHealth -= damage;
         for (int i = 0; i < 5; i++)
         {
             player.gameObject.GetComponent<Renderer>().material = hurtMaterial;
@@ -42,8 +43,7 @@ public class GM : MonoBehaviour
                 yield return new WaitForSeconds(.12f);
             }
         }
-        isInvincible = false;
+        playerIsInvincible = false;
         playerCS.isConnectable = true;
-
     }
 }
