@@ -28,8 +28,7 @@ public class ConnectionSystem : MonoBehaviour {
         	currState = ConnectionSystem.State.connected;
         	rb.velocity = Vector3.zero;
         	rb.angularVelocity = Vector3.zero;
-        	rb.constraints = RigidbodyConstraints.FreezePosition;
-        	rb.constraints = RigidbodyConstraints.FreezeRotation;
+        	rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
         }
     }
 }
