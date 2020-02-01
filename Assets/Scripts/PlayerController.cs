@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     //max speed of object
     public float maxspeed = 100;
     Rigidbody rb;
+
+    public int health = 100;
     // Start is called before the first frame update
     void Start()
     {
