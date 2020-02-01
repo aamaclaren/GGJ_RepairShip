@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResourcePoolSpawner : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] GameObject prefab;
+    [SerializeField] GameObject resourcePoolObj;
     [SerializeField] int poolSize = 20;
     [SerializeField] float spawnInterval = 1;
 
@@ -19,7 +19,7 @@ public class ResourcePoolSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pool = new ResourcePool(prefab, poolSize);
+        pool = new ResourcePool(resourcePoolObj, poolSize);
     }
 
     void Update() {
