@@ -131,7 +131,12 @@ public class EnemyLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (enemyType==EnemyType.Charger&&collision.gameObject.tag == "Player") Destroy(gameObject);
+        if (enemyType == EnemyType.Charger && collision.gameObject.tag == "Player")
+        {
+            GM.gm.player.GetComponent<PlayerController>().StartSpinning();
+            Destroy(gameObject);
+            
+        }
     }
 
     private void OnDrawGizmos()
@@ -139,5 +144,6 @@ public class EnemyLogic : MonoBehaviour
         Gizmos.color = new Color(1, 0.5f, 0.5f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRadius);
     }
+
 
 }
