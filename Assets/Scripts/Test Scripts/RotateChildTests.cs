@@ -16,7 +16,7 @@ public class RotateChildTests : MonoBehaviour
     {
         if (cs.currState == ConnectionSystem.State.connected)
         {
-            transform.LookAt(GM.gm.player.transform.position);
+            //transform.LookAt(GM.gm.player.transform.position);
             transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
         }
     }
