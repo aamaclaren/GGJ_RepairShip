@@ -155,12 +155,42 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: 4148d006ef9be2242a487c62365aab5c,
         type: 3}
+    - target: {fileID: 6614193902429055774, guid: 392374b70119a4e429ef524b0fb6cc43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 181319160}
+    - target: {fileID: 6614193902429055774, guid: 392374b70119a4e429ef524b0fb6cc43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614193902461039811, guid: 392374b70119a4e429ef524b0fb6cc43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 181319160}
+    - target: {fileID: 6614193902461039811, guid: 392374b70119a4e429ef524b0fb6cc43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 6614193902574058191, guid: 392374b70119a4e429ef524b0fb6cc43,
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 4148d006ef9be2242a487c62365aab5c,
         type: 3}
+    - target: {fileID: 6614193903167834851, guid: 392374b70119a4e429ef524b0fb6cc43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 181319160}
+    - target: {fileID: 6614193903167834851, guid: 392374b70119a4e429ef524b0fb6cc43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayAgain
+      objectReference: {fileID: 0}
     - target: {fileID: 6614193903354727564, guid: 392374b70119a4e429ef524b0fb6cc43,
         type: 3}
       propertyPath: m_FontData.m_Font
@@ -306,6 +336,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: -324
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614193903957590486, guid: 392374b70119a4e429ef524b0fb6cc43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 181319160}
+    - target: {fileID: 6614193903957590486, guid: 392374b70119a4e429ef524b0fb6cc43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayAgain
       objectReference: {fileID: 0}
     - target: {fileID: 6614193903957727809, guid: 392374b70119a4e429ef524b0fb6cc43,
         type: 3}
@@ -519,6 +559,7 @@ MonoBehaviour:
   torqueSpeed: 5
   maxAngularSpeed: 3
   rotateByTorque: 0
+  height: 0
 --- !u!54 &1638572041
 Rigidbody:
   m_ObjectHideFlags: 0
