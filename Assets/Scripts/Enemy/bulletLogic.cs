@@ -13,7 +13,7 @@ public class bulletLogic : MonoBehaviour
     private float m_startTime;
 
     public bool fromEnemy = true;
-    public float damage;
+    public int damage;
 
 
 
@@ -53,7 +53,7 @@ public class bulletLogic : MonoBehaviour
         //Debug.Log(other.tag);
         if (fromEnemy && other.tag == "Player")
         {
-
+            GM.gm.DamagePlayer(damage);
             destorySelf();
         }
         if(!fromEnemy && other.tag == "Enemy") {
