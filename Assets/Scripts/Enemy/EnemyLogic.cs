@@ -28,6 +28,8 @@ public class EnemyLogic : MonoBehaviour
     //decide which kind of enemy
     [SerializeField]
     private EnemyType enemyType;
+    [SerializeField]
+    private float m_health;
     //the min radius that the player can be detected by the enemies
     [SerializeField]
     private float attackRadius;
@@ -42,6 +44,8 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField]
     private float m_Aimingtime;
     private float m_AimingtimeCounter;
+
+
 
 
     private ShootingLogic m_shooting;
@@ -85,6 +89,7 @@ public class EnemyLogic : MonoBehaviour
         m_state = EnemyState.Idle;
         m_rb = GetComponent<Rigidbody>();
         m_shooting = GetComponent<ShootingLogic>();
+
         if (enemyType == EnemyType.Shooter)
         {
             m_navAgent = GetComponent<NavMeshAgent>();
@@ -114,6 +119,7 @@ public class EnemyLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (m_health <= 0) Destroy(gameObject);
         dist_to_player = (player.transform.position - transform.position).magnitude;
 
         if (enemyType == EnemyType.Charger) charger_behavior();
@@ -125,7 +131,7 @@ public class EnemyLogic : MonoBehaviour
 
     private void charger_behavior()
     {
-        Debug.Log(m_state);
+        //Debug.Log(m_state);
         //Debug.Log(m_slowdown);
         switch (m_state) {
             case EnemyState.Idle:
@@ -167,7 +173,7 @@ public class EnemyLogic : MonoBehaviour
 
                     transform.position = Vector3.MoveTowards(transform.position, m_target, m_speed * Time.fixedDeltaTime);
                     m_speed += m_acceleration * Time.fixedDeltaTime;
-                    Debug.Log(m_speed);
+                    //Debug.Log(m_speed);
                     if ((transform.position - m_target).magnitude < 0.01f)
                     {
                         m_slowdown = true;
@@ -275,6 +281,9 @@ public class EnemyLogic : MonoBehaviour
     {
         //Debug.Log(m_state);
         //Debug.Log(m_shooting.isfiring());
+        //Debug.Log(m_health);
+        m_shooting.bullet.GetComponent<bulletLogic>().fromEnemy = true;
+        //Debug.Log(m_shooting.bullet.GetComponent<bulletLogic>().fromEnemy);
         switch (m_state)
         {
 
@@ -337,10 +346,12 @@ public class EnemyLogic : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             GM.gm.player.GetComponent<PlayerController>().StartSpinning();
-            
+
             // GM.gm.player.GetComponent<Rigidbody>().AddTorque(Vector3.up * 1000);
-            //Destroy(gameObject);
-            
+            if (enemyType == EnemyType.Charger) Destroy(gameObject);
+            //else GM.gm.player.GetComponent<Rigidbody>().AddForce(GM.gm.player.transform.position-transform.position);
+
+
         }
     }
 
@@ -351,5 +362,9 @@ public class EnemyLogic : MonoBehaviour
         Gizmos.DrawRay(transform.position,m_target-transform.position);
     }
 
+
+    public void takeDamage(float d) {
+        m_health -= d;
+    }
 
 }

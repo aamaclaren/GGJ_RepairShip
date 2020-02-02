@@ -39,10 +39,9 @@ public class ShootingLogic : MonoBehaviour
     {
         isfire = false;
         firecount = 0;
-
-        coolDownCounter = coolDownTime / 2;
+        bullet.GetComponent<bulletLogic>().fromEnemy = true;
+        coolDownCounter = coolDownTime;
         ShotTimeCounter = 0;
-
 
         m_player = GameObject.FindGameObjectWithTag("Player");
 
@@ -77,7 +76,8 @@ public class ShootingLogic : MonoBehaviour
                     foreach (Transform t in fire_pos)
                     {
                         bulletLogic new_bullet = pool.Spawn(t.position, Quaternion.Euler(90, 0, 0)).GetComponent<bulletLogic>();
-                        Debug.Log(new_bullet.name);
+                        //Debug.Log(new_bullet.name);
+                        new_bullet.fromEnemy = true;
                         new_bullet.setSpeed(BulletSpeed);
                         new_bullet.setDir(t.forward);
                         //new_CannoBall.dir = m_player.transform.position - fire_pos.transform.position;
@@ -116,7 +116,7 @@ public class ShootingLogic : MonoBehaviour
 
         isfire = val;
         firecount = 0;
-        coolDownCounter = coolDownTime / 2;
+        coolDownCounter = coolDownTime;
         ShotTimeCounter = 0;
     }
 

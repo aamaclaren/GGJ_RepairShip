@@ -33,6 +33,11 @@ public class bulletLogic : MonoBehaviour
         if (Time.time - m_startTime >= m_lifetime) destorySelf();
     }
 
+    private void OnEnable()
+    {
+        m_startTime = Time.time;
+    }
+
     public void setDir(Vector3 thedir)
     {
         dir = thedir;
@@ -46,7 +51,15 @@ public class bulletLogic : MonoBehaviour
     {
 
         //Debug.Log(other.tag);
-        if(fromEnemy&&other.tag == "Player") destorySelf();
+        if (fromEnemy && other.tag == "Player")
+        {
+
+            destorySelf();
+        }
+        if(!fromEnemy && other.tag == "Enemy") {
+            other.gameObject.GetComponent<EnemyLogic>().takeDamage(damage);
+            destorySelf();
+        }
     }
 
     private void destorySelf() {

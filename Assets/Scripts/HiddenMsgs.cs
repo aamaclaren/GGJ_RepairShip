@@ -73,20 +73,20 @@ public class HiddenMsgs : MonoBehaviour
         //    showLose();
         //}
 
-        //if (Input.GetKeyDown(KeyCode.Escape))                   //options
-        //{
-        //    if (Time.timeScale == 1)
-        //    {
-        //        Time.timeScale = 0;
-        //        showPause();
-        //    }
-        //    else if (Time.timeScale == 0)
-        //    {
-        //        Debug.Log("high");
-        //        Time.timeScale = 1;
-        //        hidePause();
-        //    }
-        //}
+        if (Input.GetKeyDown(KeyCode.Escape))                   //options
+        {
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+                showPause();
+            }
+            else if (Time.timeScale == 0)
+            {
+                Debug.Log("high");
+                Time.timeScale = 1;
+                hidePause();
+            }
+        }
 
         //if (Input.GetKeyDown(KeyCode.W))                    //win
         //{
@@ -164,7 +164,7 @@ public class HiddenMsgs : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(0);
     }
     public void Resume()
     {
@@ -174,12 +174,18 @@ public class HiddenMsgs : MonoBehaviour
     public void PlayAgain()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(1);
     }
 
     //health
     public void setHealth(int h)
     {
         hull.text = "Hull Integrity: " + h.ToString() + "%";
+    }
+
+    //mass
+    public void setMass(int m)
+    {
+        massx.text = "Mass: " + m.ToString();
     }
 }
