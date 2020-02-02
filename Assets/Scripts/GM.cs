@@ -32,7 +32,7 @@ public class GM : MonoBehaviour
 
     public void DamagePlayer(int damage = 100)
     {
-        playerHealth -= damage;
+        playerHealth = Mathf.Clamp(playerHealth - damage, 0, 100);
         //HiddenMsgs.setHealth(playerHealth);
         GM.gm.msg.setHealth(playerHealth);
 
