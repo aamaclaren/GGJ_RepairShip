@@ -12,6 +12,7 @@ public class GM : MonoBehaviour
 
     private Material defaultPlayerMaterial;
     private PlayerController playerController;
+    public HiddenMsgs msg;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +32,10 @@ public class GM : MonoBehaviour
 
     public void DamagePlayer(int damage = 100)
     {
-        playerHealth -= damage;
-        HiddenMsgs.setHealth(playerHealth);
+        playerHealth = Mathf.Clamp(playerHealth - damage, 0, 100);
+        //HiddenMsgs.setHealth(playerHealth);
+        GM.gm.msg.setHealth(playerHealth);
+
         // flashing
         playerController.StartFlashing();
         if (damage > 0) {

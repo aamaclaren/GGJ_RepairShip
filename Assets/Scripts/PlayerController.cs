@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    rb.AddTorque(torqueSpeed * (horizontal * Vector3.up));
+                    rb.AddRelativeTorque(torqueSpeed * (horizontal * Vector3.up));
                     if (rb.angularVelocity.y > maxAngularSpeed)
                     {
                         rb.angularVelocity = Vector3.up * maxAngularSpeed;
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        Debug.Log(rb.angularVelocity);
+        //Debug.Log(rb.angularVelocity);
     }
 
     public IEnumerator Spinning()
@@ -84,15 +84,15 @@ public class PlayerController : MonoBehaviour
         // Debug.Log("freeze");
         //rb.constraints = RigidbodyConstraints.FreezeRotation;
         // yield return new WaitForSeconds(.1f);
-        // if (spinning)
-        // {
-        //     rb.angularVelocity = Vector3.zero;
-        // }
-        // else
-        // {
-        //     rb.constraints = RigidbodyConstraints.None;
-        //     rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
-        // }
+         if (spinning)
+         {
+             rb.angularVelocity = Vector3.zero;
+         }
+         else
+         {
+             rb.constraints = RigidbodyConstraints.None;
+             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+         }
         spinning = false;
         
     }

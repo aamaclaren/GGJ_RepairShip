@@ -12,6 +12,8 @@ public class bulletLogic : MonoBehaviour
 
     private float m_startTime;
 
+    public bool fromEnemy = true;
+
 
 
     private Vector3 dir;
@@ -41,8 +43,9 @@ public class bulletLogic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-    
-        if (other.tag == "Player") destorySelf();
+
+        //Debug.Log(other.tag);
+        if(fromEnemy&&other.tag == "Player") destorySelf();
     }
 
     private void destorySelf() {
