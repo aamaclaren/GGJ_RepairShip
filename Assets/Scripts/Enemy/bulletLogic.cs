@@ -51,10 +51,13 @@ public class bulletLogic : MonoBehaviour
     {
 
         //Debug.Log(other.tag);
-        if (fromEnemy && other.tag == "Player")
+        if (fromEnemy)
         {
-            GM.gm.DamagePlayer(damage);
-            destorySelf();
+            if (other.gameObject.GetComponent<ConnectionSystem>() != null) {
+                // GM.gm.DamagePlayer(damage);
+                other.gameObject.GetComponent<ConnectionSystem>().TakeDamage(damage);
+                destorySelf();
+            }
         }
         if(!fromEnemy && other.tag == "Enemy") {
             other.gameObject.GetComponent<EnemyLogic>().takeDamage(damage);

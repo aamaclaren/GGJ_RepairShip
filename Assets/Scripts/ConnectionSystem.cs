@@ -77,11 +77,11 @@ public class ConnectionSystem : MonoBehaviour {
 
     // call this on a connected part, not the ship itself (if the part in question happens to be the core, this will still take care of it)
     public void TakeDamage(int damage = 100) {
-    	health -= damage;
-    	if (health <= 0) {
-    		Disconnect();
-    	}
     	if (!GM.gm.PlayerIsInvincible()) {
+	    	health -= damage;
+	    	if (health <= 0) {
+	    		Disconnect();
+	    	}
 	    	if (isShipCore) {
 	    		GM.gm.DamagePlayer(damage);
 	    	} else {
