@@ -23,7 +23,7 @@ public class WeaponLogic : MonoBehaviour
     [SerializeField]
     private float TimeBtwShots;
     private float ShotTimeCounter;
-
+    LayerMask mask = ~(1 << 11);
 
     [Header("MachineGun variables")]
     //variables for machine gun

@@ -560,7 +560,7 @@ MonoBehaviour:
   spinning: 0
   torqueSpeed: 5
   maxAngularSpeed: 3
-  rotateByTorque: 1
+  rotateByTorque: 0
 --- !u!65 &881361761
 BoxCollider:
   m_ObjectHideFlags: 0
