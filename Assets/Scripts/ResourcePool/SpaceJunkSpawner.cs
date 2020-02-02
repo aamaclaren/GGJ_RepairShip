@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class SpaceJunkSpawner : MonoBehaviour
 {
+    [Header("Object References")]
     [SerializeField] GameObject player;
     [SerializeField] GameObject spaceJunkObj;
+
+    [Header("Resource Pool Configs")]
     [SerializeField] int poolSize = 20;
-    [SerializeField] int initialInstances = 5;
     [SerializeField] int maxInstances = 25;
+
+    [Header("Spawned Object Configs")]
     [SerializeField] float spawnInterval = 1;
-
-    [SerializeField] float minSpawRange = 5;
+    [SerializeField] int initialInstances = 5;
+    [SerializeField] float minSpawnRange = 5;
     [SerializeField] float maxSpawnRange = 20;
-
     [SerializeField] float minSpawnForce = 5;
     [SerializeField] float maxSpawnForce = 25;
     [SerializeField] float minSpawnTorque = 0.5f;
     [SerializeField] float maxSpawnTorque = 2.5f;
-
     [SerializeField] float minScale = 1;
     [SerializeField] float maxScale = 3;
-
     [SerializeField] bool isAttachableToPlayer = true;
+
 
     private float time;
 
@@ -39,6 +41,10 @@ public class SpaceJunkSpawner : MonoBehaviour
 
     void Update() {
         checkForSpawn();
+    }
+
+    public void despawnListener(GameObject spawendObj) {
+        currentInstances -= 1;
     }
 
     private void setSpaceJunkContainer() {
@@ -67,33 +73,44 @@ public class SpaceJunkSpawner : MonoBehaviour
     }
 
     private void spawnAroundPlayer(){
-        //Get random Vector2 offset to use in spawn pos offset. Only X,Z needed - spawned objects need to use Y value of player object.
-        //Y value will be used for Z in the V3 offset.
-        Vector2 randomOffset = Random.insideUnitCircle * Random.Range(minSpawRange, maxSpawnRange);
-        Vector3 spawnPosOffset = new Vector3(randomOffset.x, 0, randomOffset.y);
+        Vector3 spawnPosOffset = getRandomSpawnPosOffset();
+        GameObject obj = spawnPoolObject(spawnPosOffset);
 
+        setInitialObjState(obj);
+        setObjParent(obj);
+    }
+
+    private Vector3 getRandomSpawnPosOffset(){
+        Vector2 randomCircleOffset = Random.insideUnitCircle.normalized * Random.Range(minSpawnRange, maxSpawnRange);
+        
+        return new Vector3(randomCircleOffset.x, 0, randomCircleOffset.y);
+    }
+
+    private GameObject spawnPoolObject(Vector3 spawnPosOffset) {
         GameObject spawnedPoolObject = pool.Spawn(player.transform.position + spawnPosOffset, Quaternion.identity);
         spawnedPoolObject.AddComponent<SpaceJunkSpawnTracker>().spawner = this;
         currentInstances += 1;
 
+        return spawnedPoolObject;
+    }
+
+    private void setInitialObjState(GameObject obj) {
         float scaleFactor = Random.Range(minScale, maxScale);
-        spawnedPoolObject.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+        obj.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
 
-        spawnedPoolObject.transform.rotation = Random.rotation;
-        spawnedPoolObject.GetComponent<Rigidbody>().AddForce(spawnedPoolObject.transform.forward * Random.Range(minSpawnForce, maxSpawnForce), ForceMode.Impulse);
-        spawnedPoolObject.GetComponent<Rigidbody>().AddTorque(spawnPosOffset * Random.Range(minSpawnTorque, maxSpawnTorque));
+        obj.transform.rotation = Random.rotation;
+        obj.GetComponent<Rigidbody>().AddForce(obj.transform.forward * Random.Range(minSpawnForce, maxSpawnForce), ForceMode.Impulse);
+        obj.GetComponent<Rigidbody>().AddTorque(obj.transform.right * Random.Range(minSpawnTorque, maxSpawnTorque));
+    }
 
+    private void setObjParent(GameObject obj) {
         if(isAttachableToPlayer) {
             GameObject emptyParent = new GameObject("SpaceJunkContainer");
             emptyParent.transform.parent = spaceJunkContainer.transform;
-            spawnedPoolObject.transform.parent = emptyParent.transform;
+            obj.transform.parent = emptyParent.transform;
         }
         else {
-            spawnedPoolObject.transform.parent = spaceJunkContainer.transform;
+            obj.transform.parent = spaceJunkContainer.transform;
         }
-    }
-
-    public void despawnListener(GameObject spawendObj) {
-        currentInstances -= 1;
     }
 }
