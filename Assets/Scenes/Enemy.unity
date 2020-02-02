@@ -131,8 +131,9 @@ GameObject:
   - component: {fileID: 6823692}
   - component: {fileID: 6823691}
   - component: {fileID: 6823690}
+  - component: {fileID: 6823693}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,6 +154,7 @@ MonoBehaviour:
   player: {fileID: 2068411952}
   sounds: []
   playerHealth: 100
+  msg: {fileID: 6823693}
 --- !u!82 &6823691
 AudioSource:
   m_ObjectHideFlags: 0
@@ -263,6 +265,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6823693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 392a32ecfdb0d804d855493c7a028d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blip:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  blipduration: 0
+  blipscale: 0
+  hull: {fileID: 0}
+  massx: {fileID: 0}
 --- !u!1 &50820235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1426,7 @@ MonoBehaviour:
   fire_pos:
   - {fileID: 475210724}
   - {fileID: 1666433739}
-  bullet: {fileID: 8658736643286421334, guid: 059a7de552fa2493babbdbf628bcdee1, type: 3}
+  bullet: {fileID: 0}
   poolSize: 100
   max_firecount: 3
 --- !u!114 &2010265433
