@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public float torqueSpeed = 5;
     public int maxAngularSpeed = 3;
     public bool rotateByTorque = true;
+
+    float actualRotationSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+        actualRotationSpeed = Mathf.Lerp(actualRotationSpeed, horizontal * rotationSpeed, Time.deltaTime * 4);
     }
 
     // Update is called once per frame
@@ -51,13 +54,13 @@ public class PlayerController : MonoBehaviour
                     rb.velocity = rb.velocity.normalized * maxspeed;
                 }
             }
-            if (horizontal != 0)
-            {
+            // if (horizontal != 0)
+            // {
                 if (!rotateByTorque)
                 {
-                    transform.RotateAround(transform.position, transform.up * horizontal, Time.deltaTime * rotationSpeed);
+                    transform.RotateAround(transform.position, transform.up, Time.deltaTime * actualRotationSpeed);
                 }
-                else
+                else if (horizontal != 0)
                 {
                     rb.AddRelativeTorque(torqueSpeed * (horizontal * Vector3.up));
                     if (rb.angularVelocity.y > maxAngularSpeed)
@@ -65,7 +68,7 @@ public class PlayerController : MonoBehaviour
                         rb.angularVelocity = Vector3.up * maxAngularSpeed;
                     }
                 }
-            }
+            // }
         }
         //Debug.Log(rb.angularVelocity);
     }
@@ -99,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
     public void StartSpinning()
     {
-        StartCoroutine(Spinning());
+        // StartCoroutine(Spinning());
     }
 
     public IEnumerator Flashing() {
