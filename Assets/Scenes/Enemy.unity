@@ -384,8 +384,8 @@ MonoBehaviour:
   attackRadius: 15
   m_speed: 3
   m_acceleration: 0
-  m_angularSpeed: 0
-  m_Aimingtime: 0
+  m_angularSpeed: 5
+  m_Aimingtime: 2
   m_MovingTimeBtwShots: 0
   m_ShootingTimeBtwMoving: 0
 --- !u!54 &50820241
@@ -419,7 +419,11 @@ MonoBehaviour:
   coolDownTime: 1
   TimeBtwShots: 0.2
   BulletSpeed: 5
-  fire_pos: []
+  fire_pos:
+  - {fileID: 1180579333}
+  - {fileID: 2014687525}
+  - {fileID: 1187771143}
+  - {fileID: 1473305399}
   bullet: {fileID: 8658736643286421337, guid: 059a7de552fa2493babbdbf628bcdee1, type: 3}
   max_firecount: 10
 --- !u!195 &50820243
