@@ -32,7 +32,7 @@ public class GM : MonoBehaviour
     public void DamagePlayer(int damage = 100)
     {
         playerHealth -= damage;
-
+        HiddenMsgs.setHealth(playerHealth);
         // flashing
         playerController.StartFlashing();
         if (damage > 0) {
