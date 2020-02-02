@@ -13,7 +13,7 @@ public class WeaponLogic : MonoBehaviour
     private WeaponType m_weaponType;
 
     [SerializeField]
-    private float damage;
+    private int damage;
 
     [SerializeField]
     List<Transform> Fire_pos;
@@ -124,7 +124,7 @@ public class WeaponLogic : MonoBehaviour
                 foreach (Transform t in Fire_pos)
                 {
                     bulletLogic new_bullet = Instantiate(bullet, t.position, Quaternion.Euler(90, 0, 0));
-
+                    new_bullet.fromEnemy = false;
                     new_bullet.setSpeed(BulletSpeed);
                     new_bullet.setDir(t.forward);
                 }

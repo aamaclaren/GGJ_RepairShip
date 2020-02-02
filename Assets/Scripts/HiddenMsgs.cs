@@ -183,9 +183,9 @@ public class HiddenMsgs : MonoBehaviour
     }
 
     //health
-    public void setHealth(int h)
+    public void UpdateHealth()
     {
-        hull.text = "Hull Integrity: " + h.ToString() + "%";
+        hull.text = "Hull Integrity: " + GM.gm.playerHealth.ToString() + "%";
     }
     public void setMass(int m)
     {
