@@ -13,6 +13,7 @@ public class bulletLogic : MonoBehaviour
     private float m_startTime;
 
     public bool fromEnemy = true;
+    public float damage;
 
 
 
