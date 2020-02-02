@@ -116,6 +116,8 @@ MonoBehaviour:
   m_Aimingtime: 1
   m_MovingTimeBtwShots: 0
   m_ShootingTimeBtwMoving: 0
+  ambience: {fileID: 24500006, guid: 281e07f9cc975d2478753ee05dc57741, type: 2}
+  combat: {fileID: 4816841484206131867, guid: 281e07f9cc975d2478753ee05dc57741, type: 2}
 --- !u!114 &1575955322743670758
 MonoBehaviour:
   m_ObjectHideFlags: 0

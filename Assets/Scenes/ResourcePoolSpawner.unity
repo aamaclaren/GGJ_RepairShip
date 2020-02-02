@@ -621,6 +621,57 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5520753074606313944, guid: f76b74899515a224babe4b8ce022f9d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520753074606313950, guid: f76b74899515a224babe4b8ce022f9d1,
+        type: 3}
+      propertyPath: spaceJunkObj
+      value: 
+      objectReference: {fileID: 4294388817782038484, guid: 51a04bb1457a028488822132d1940f8a,
+        type: 3}
+    - target: {fileID: 5520753074606313950, guid: f76b74899515a224babe4b8ce022f9d1,
+        type: 3}
+      propertyPath: maxInstances
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520753074606313950, guid: f76b74899515a224babe4b8ce022f9d1,
+        type: 3}
+      propertyPath: maxScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520753074606313950, guid: f76b74899515a224babe4b8ce022f9d1,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1795415322}
+    - target: {fileID: 5520753074606313950, guid: f76b74899515a224babe4b8ce022f9d1,
+        type: 3}
+      propertyPath: maxSpawnForce
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520753074606313950, guid: f76b74899515a224babe4b8ce022f9d1,
+        type: 3}
+      propertyPath: minSpawnForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520753074606313950, guid: f76b74899515a224babe4b8ce022f9d1,
+        type: 3}
+      propertyPath: isPlayerWeapon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520753074606313950, guid: f76b74899515a224babe4b8ce022f9d1,
+        type: 3}
+      propertyPath: maxSpawnTorque
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520753074606313950, guid: f76b74899515a224babe4b8ce022f9d1,
+        type: 3}
+      propertyPath: minSpawnTorque
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6405152546061385610, guid: f76b74899515a224babe4b8ce022f9d1,
         type: 3}
       propertyPath: m_IsActive

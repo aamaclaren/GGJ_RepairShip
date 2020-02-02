@@ -13,7 +13,7 @@ public class WeaponLogic : MonoBehaviour
     private WeaponType m_weaponType;
 
     [SerializeField]
-    private float damage;
+    private int damage;
 
     [SerializeField]
     List<Transform> Fire_pos;
