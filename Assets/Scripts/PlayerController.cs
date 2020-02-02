@@ -78,7 +78,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.None;
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
-            rb.maxAngularVelocity = 3;
         }
         spinning = false;
         
