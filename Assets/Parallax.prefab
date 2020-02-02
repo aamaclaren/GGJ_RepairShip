@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6540960254132089496}
   - component: {fileID: 6540960254132089497}
   - component: {fileID: 6540960254132089508}
+  - component: {fileID: 1765414751}
   m_Layer: 0
   m_Name: Parallax
   m_TagString: MainCamera
@@ -43,7 +44,7 @@ Camera:
   m_GameObject: {fileID: 6540960254132089509}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -60,7 +61,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -85,6 +86,66 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6540960254132089509}
   m_Enabled: 1
+--- !u!114 &1765414751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6540960254132089509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 6540960254132089496}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &6540960254985344362
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +158,6 @@ GameObject:
   - component: {fileID: 6540960254985344366}
   - component: {fileID: 6540960254985344367}
   - component: {fileID: 6540960254985344360}
-  - component: {fileID: 6540960254985344361}
   - component: {fileID: 6540960254985344364}
   m_Layer: 0
   m_Name: Starfield
@@ -180,18 +240,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6540960254985344361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6540960254985344362}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a4b5748d3784d948982feae73773973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6540960254985344364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parralax: 8
+  initialOffset: {x: 0.1, y: 0.5}
 --- !u!1 &6540960255718792696
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6540960255718792696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: -0, z: 10}
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 6540960254132089496}
@@ -325,3 +374,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parralax: 4
+  initialOffset: {x: 0, y: 0}
