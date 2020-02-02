@@ -23,7 +23,7 @@ public class FollowUV : MonoBehaviour {
 		m.mainTextureScale = new Vector2(1, stretch);
 
 		offset.x = transform.position.x / transform.localScale.x / parralax;
-		offset.y = transform.position.y / transform.localScale.y / parralax;
+		offset.y = transform.position.z / transform.localScale.z / parralax;
 
 		scrollOffset += UVScroll;
 
