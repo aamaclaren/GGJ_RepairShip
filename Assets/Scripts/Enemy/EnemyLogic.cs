@@ -359,12 +359,11 @@ public class EnemyLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && gameObject.layer != LayerMask.NameToLayer("Bullet"))
         {
             GM.gm.player.GetComponent<PlayerController>().StartSpinning();
-
             // GM.gm.player.GetComponent<Rigidbody>().AddTorque(Vector3.up * 1000);
-            if (enemyType == EnemyType.Charger) Destroy(gameObject);
+            //if (enemyType == EnemyType.Charger) Destroy(gameObject);
             //else GM.gm.player.GetComponent<Rigidbody>().AddForce(GM.gm.player.transform.position-transform.position);
 
             //combat.TransitionTo(11 / 14);
