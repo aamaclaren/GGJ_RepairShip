@@ -28,7 +28,7 @@ public class ConnectionSystem : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
     	if (isConnectable && currState == ConnectionSystem.State.loose) {
 	        ConnectionSystem otherCS = other.gameObject.GetComponent<ConnectionSystem>();
-	        if (otherCS != null && otherCS.currState == ConnectionSystem.State.connected && GM.gm.playerCS.isConnectable) {
+	        if (otherCS != null && otherCS.currState == ConnectionSystem.State.connected && GM.gm.GetPlayerCS().isConnectable) {
 	        	transform.SetParent(other.gameObject.transform);
 	        	currState = ConnectionSystem.State.connected;
 	        	gameObject.layer = 8;
@@ -47,9 +47,9 @@ public class ConnectionSystem : MonoBehaviour {
     		Disconnect();
     	}
     	if (isShipCore) {
-    		StartCoroutine(GM.gm.PlayerTookDamage(damage));
-    	} else if (!GM.gm.playerIsInvincible) {
-    		StartCoroutine(GM.gm.PlayerTookDamage(0));
+    		GM.gm.DamagePlayer(damage);
+    	} else if (!GM.gm.playerIsInvincible()) {
+    		GM.gm.DamagePlayer(0);
     	}
     }
 
