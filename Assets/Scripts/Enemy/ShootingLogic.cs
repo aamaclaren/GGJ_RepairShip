@@ -34,6 +34,9 @@ public class ShootingLogic : MonoBehaviour
 
     private GameObject m_player;
 
+    //music variables
+    public AudioSource shotSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +79,10 @@ public class ShootingLogic : MonoBehaviour
                     foreach (Transform t in fire_pos)
                     {
                         bulletLogic new_bullet = pool.Spawn(t.position, Quaternion.Euler(90, 0, 0)).GetComponent<bulletLogic>();
+                        if (shotSound != null)
+                        {
+                            shotSound.Play();
+                        }
                         //Debug.Log(new_bullet.name);
                         new_bullet.fromEnemy = true;
                         new_bullet.setSpeed(BulletSpeed);

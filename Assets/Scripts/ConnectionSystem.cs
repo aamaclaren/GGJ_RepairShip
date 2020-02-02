@@ -23,6 +23,13 @@ public class ConnectionSystem : MonoBehaviour {
 
     Vector3 scale;
     Quaternion localRot;
+
+    //Music variables
+    public AudioSource click;
+    public AudioSource explosion;
+    public AudioSource thud;
+    public AudioSource metalThud;
+
     // Use this for initialization
     void Awake() {
 
@@ -50,6 +57,10 @@ public class ConnectionSystem : MonoBehaviour {
                         transform.parent.SetParent(other.transform);
                         GM.gm.SetMass(GM.gm.GetMassWithChildren());
                         GM.gm.RefreshLargestRadius();
+                        if (click != null)
+                        {
+                            click.Play();
+                        }
                     }
                     else
                     {
@@ -58,6 +69,10 @@ public class ConnectionSystem : MonoBehaviour {
                             transform.parent.SetParent(other.transform.parent);
                             GM.gm.SetMass(GM.gm.GetMassWithChildren());
                             GM.gm.RefreshLargestRadius();
+                            if (click != null)
+                            {
+                                click.Play();
+                            }
                         }
                         //transform.parent.SetParent(other.gameObject.transform);
                     }
@@ -81,13 +96,25 @@ public class ConnectionSystem : MonoBehaviour {
 	    	health -= damage;
 	    	if (health <= 0) {
 	    		Disconnect();
-	    	}
+                if (explosion != null)
+                {
+                    explosion.Play();
+                }
+            }
 	    	if (isShipCore) {
                 Debug.Log("hittt");
 	    		GM.gm.DamagePlayer(damage);
-	    	} else {
+                if (metalThud != null)
+                {
+                    metalThud.Play();
+                }
+            } else {
 	    		GM.gm.DamagePlayer(0);
-	    	}
+                if (thud != null)
+                {
+                    thud.Play();
+                }
+            }
 	    }
     }
 
