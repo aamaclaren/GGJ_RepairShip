@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 enum EnemyType{
     Charger,
@@ -80,7 +81,9 @@ public class EnemyLogic : MonoBehaviour
     //distance to the player
     private float dist_to_player;
 
-
+    //Music-related variables
+    public AudioMixerSnapshot ambience;
+    public AudioMixerSnapshot combat;
 
     // Start is called before the first frame update
     void Start()
@@ -142,6 +145,7 @@ public class EnemyLogic : MonoBehaviour
                 break;
             case EnemyState.Patrol:
                 if (dist_to_player <= attackRadius) {
+                    combat.TransitionTo(22 / 14);
                     m_state = EnemyState.Charging;
                 }
                 break;
@@ -151,6 +155,7 @@ public class EnemyLogic : MonoBehaviour
                 if (m_AimingtimeCounter >= m_Aimingtime)
                 {
                     m_AimingtimeCounter = 0;
+                    combat.TransitionTo(22 / 14);
                     m_state = EnemyState.Charging;
                 }
                 else m_AimingtimeCounter += Time.fixedDeltaTime;
@@ -206,11 +211,13 @@ public class EnemyLogic : MonoBehaviour
             case EnemyState.Patrol:
                 if (dist_to_player <= attackRadius)
                 {
-                    m_state = EnemyState.Charging;
+                    combat.TransitionTo(22 / 14);
+                    m_state = EnemyState.Shooting;
                 }
                 break;
             case EnemyState.Aiming:
                 if (dist_to_player > attackRadius*2) {
+                    ambience.TransitionTo(22 / 14);
                     m_state = EnemyState.Idle;
                     break;
                 }
@@ -222,6 +229,7 @@ public class EnemyLogic : MonoBehaviour
                 {
                     m_AimingtimeCounter = 0;
                     //transform.rotation = q;
+                    combat.TransitionTo(22 / 14);
                     m_state = EnemyState.Shooting;
                     break;
                 }
@@ -295,6 +303,7 @@ public class EnemyLogic : MonoBehaviour
             case EnemyState.Idle:
                 if (dist_to_player <= attackRadius)
                 {
+                    combat.TransitionTo(22 / 14);
                     m_state = EnemyState.Shooting;
                 }
                 break;
@@ -308,6 +317,7 @@ public class EnemyLogic : MonoBehaviour
                 if ((transform.position - player.transform.position).magnitude >= attackRadius)
                 {
                     m_shooting.activate_fire(false);
+                    ambience.TransitionTo(22 / 14);
                     m_state = EnemyState.Idle;
                     break;
 
@@ -356,9 +366,17 @@ public class EnemyLogic : MonoBehaviour
             //if (enemyType == EnemyType.Charger) Destroy(gameObject);
             //else GM.gm.player.GetComponent<Rigidbody>().AddForce(GM.gm.player.transform.position-transform.position);
 
-
+            //combat.TransitionTo(11 / 14);
         }
     }
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        ambience.TransitionTo(11 / 14);
+    //    }
+    //}
 
     private void OnDrawGizmos()
     {

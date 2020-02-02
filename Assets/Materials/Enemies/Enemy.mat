@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Enemy
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP _SPECGLOSSMAP
+  m_Shader: {fileID: 47, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _NORMALMAP _PARALLAXMAP _SPECGLOSSMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: b9d8134332d90954ea72dcc75140f22c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2b69ceb87c1594422b5a8dde66d04a80, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,23 +40,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 008a347ca12a2f84fb6879e11eaf7814, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1f1e925b93f1443c2804c2a55d5ba4f6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 4c89d6250f5264b4bb25e379d9fa8f95, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: e22e093f4fbb9504aa79de17aca942e4, type: 3}
+        m_Texture: {fileID: 2800000, guid: c0fdcbbfa1da04ebc91680f868c3cbab, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: d28e3842b2ce8a443831ff6080a8fcbe, type: 3}
+        m_Texture: {fileID: 2800000, guid: dcc873b4888fe4372af7e8c3af6968f4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: a946f3506a8464e47ac45b28f9ff656f, type: 3}
+        m_Texture: {fileID: 2800000, guid: e780174a0d153427aa21fdd8c0fa4484, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -67,7 +67,7 @@ Material:
     - _GlossMapScale: 0.405
     - _Glossiness: 0.803
     - _GlossyReflections: 1
-    - _Metallic: 0.772
+    - _Metallic: 0.325
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.0264
