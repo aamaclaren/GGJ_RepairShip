@@ -333,7 +333,7 @@ public class EnemyLogic : MonoBehaviour
 
         Vector3 dir = (player.transform.position - transform.position).normalized;
 
-        dir = Quaternion.Euler(0,Mathf.Pow(-1, Random.Range(1,3)) * Random.Range(75, 95), 0) * dir;
+        dir = Quaternion.Euler(0,Mathf.Pow(-1, Random.Range(1,3)) * Random.Range(30, 55), 0) * dir;
 
         return transform.position + dir*20;
 
