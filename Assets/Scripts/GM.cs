@@ -35,6 +35,7 @@ public class GM : MonoBehaviour
         playerHealth -= damage;
         //HiddenMsgs.setHealth(playerHealth);
         GM.gm.msg.setHealth(playerHealth);
+
         // flashing
         playerController.StartFlashing();
         if (damage > 0) {

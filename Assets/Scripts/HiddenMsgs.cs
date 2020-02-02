@@ -54,44 +54,44 @@ public class HiddenMsgs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))                                            //blip if
-        {
-            count++;
-            massx.text = "Mass: " + count.ToString();
-            if (blipCoroutine == null)
-            {
-                blipCoroutine = StartCoroutine(blipanimation());
-            }
-            else
-            {
-                start = Time.timeSinceLevelLoad;
-            }
+        //if (Input.GetKeyDown(KeyCode.Space))                                            //blip if
+        //{
+        //    count++;
+        //    massx.text = "Mass: " + count.ToString();
+        //    if (blipCoroutine == null)
+        //    {
+        //        blipCoroutine = StartCoroutine(blipanimation());
+        //    }
+        //    else
+        //    {
+        //        start = Time.timeSinceLevelLoad;
+        //    }
 
-        }
-        if (health <= 0)
-        {
-            showLose();
-        }
+        //}
+        //if (health <= 0)
+        //{
+        //    showLose();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Escape))                   //options
-        {
-            if (Time.timeScale == 1)
-            {
-                Time.timeScale = 0;
-                showPause();
-            }
-            else if (Time.timeScale == 0)
-            {
-                Debug.Log("high");
-                Time.timeScale = 1;
-                hidePause();
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))                   //options
+        //{
+        //    if (Time.timeScale == 1)
+        //    {
+        //        Time.timeScale = 0;
+        //        showPause();
+        //    }
+        //    else if (Time.timeScale == 0)
+        //    {
+        //        Debug.Log("high");
+        //        Time.timeScale = 1;
+        //        hidePause();
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.W))                    //win
-        {
-            showWin();
-        }
+        //if (Input.GetKeyDown(KeyCode.W))                    //win
+        //{
+        //    showWin();
+        //}
     }
 
     
