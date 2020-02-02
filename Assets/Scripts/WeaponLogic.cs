@@ -95,6 +95,7 @@ public class WeaponLogic : MonoBehaviour
         fireCount = 0;
         shooting_counter = 0;
         ShotTimeCounter = 0;
+        if(m_weaponType==WeaponType.Turrent)line.enabled = false;
     }
 
     public void useMachineGun()
