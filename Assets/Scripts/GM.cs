@@ -39,6 +39,7 @@ public class GM : MonoBehaviour
         if (playerHealth <= 0)
         {
             GM.gm.msg.showLose();
+            return;
         }
 
         // flashing
