@@ -19,6 +19,7 @@ public class ConnectionSystem : MonoBehaviour {
 	private Rigidbody rb;
 
     Vector3 scale;
+    Quaternion localRot;
     // Use this for initialization
     void Awake() {
 
@@ -29,7 +30,6 @@ public class ConnectionSystem : MonoBehaviour {
 
     private void Update()
     {
-
     }
     // if the object touches the ship (or its connected parts), connect to it
     private void OnTriggerEnter(Collider other) {
@@ -38,12 +38,13 @@ public class ConnectionSystem : MonoBehaviour {
             //Debug.Log(otherCS); 
 	        if (otherCS != null && otherCS.currState == ConnectionSystem.State.connected && GM.gm.player.GetComponent<ConnectionSystem>().isConnectable) {
                 //transform.SetParent(other.gameObject.transform);
-                
+                localRot = transform.localRotation;
+                Debug.Log(localRot);
                 if (transform.parent != null)
                 {
                     if (other.tag == "Player")
                     {
-                        transform.SetParent(other.transform);
+                        transform.parent.SetParent(other.transform);
                     }
                     else
                     {
@@ -92,5 +93,14 @@ public class ConnectionSystem : MonoBehaviour {
     	}
     	rb.AddForce((transform.position - GM.gm.player.transform.position).normalized * 50);
     	health = defaultHealth;
+    }
+    private void LateUpdate()
+    {
+        rb.angularVelocity = Vector3.zero;
+        if (gameObject.tag != "Player")
+        {
+            transform.localRotation = localRot;
+        }
+        //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
 }
