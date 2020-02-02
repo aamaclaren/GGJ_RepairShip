@@ -41,7 +41,18 @@ public class ConnectionSystem : MonoBehaviour {
                 
                 if (transform.parent != null)
                 {
-                    transform.parent.SetParent(other.gameObject.transform);
+                    if (other.tag == "Player")
+                    {
+                        transform.SetParent(other.transform);
+                    }
+                    else
+                    {
+                        if (other.transform.parent != null)
+                        {
+                            transform.parent.SetParent(other.transform.parent);
+                        }
+                        //transform.parent.SetParent(other.gameObject.transform);
+                    }
                 }
                 currState = ConnectionSystem.State.connected;
 	        	gameObject.layer = 8;
