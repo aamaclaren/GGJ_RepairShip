@@ -226,8 +226,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   postExposure:
-    overrideState: 0
-    value: -2.3
+    overrideState: 1
+    value: 0.25
   contrast:
     overrideState: 0
     value: 10.2
@@ -266,7 +266,7 @@ MonoBehaviour:
     value: {x: 0.9106056, y: 1, z: 0.8983191, w: 0.00000010537567}
   gain:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 1, y: 1, z: 1, w: 0.35062084}
   masterCurve:
     overrideState: 0
     value:
