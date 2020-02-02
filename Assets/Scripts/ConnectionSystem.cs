@@ -81,11 +81,13 @@ public class ConnectionSystem : MonoBehaviour {
     	if (health <= 0) {
     		Disconnect();
     	}
-    	if (isShipCore) {
-    		GM.gm.DamagePlayer(damage);
-    	} else if (!GM.gm.PlayerIsInvincible()) {
-    		GM.gm.DamagePlayer(0);
-    	}
+    	if (!GM.gm.PlayerIsInvincible()) {
+	    	if (isShipCore) {
+	    		GM.gm.DamagePlayer(damage);
+	    	} else {
+	    		GM.gm.DamagePlayer(0);
+	    	}
+	    }
     }
 
     // this disconnects the current part (along with its children) from the ship
