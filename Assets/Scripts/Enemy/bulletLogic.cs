@@ -18,8 +18,6 @@ public class bulletLogic : MonoBehaviour
 
     private Vector3 dir;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +50,13 @@ public class bulletLogic : MonoBehaviour
 
     private void destorySelf() {
 
-        if (gameObject!=null) Destroy(gameObject);
+        ResourcePoolMember rpm = gameObject.GetComponent<ResourcePoolMember>();
+        if(rpm != null) {
+            rpm.Despawn();
+        }
+        else {
+            Destroy(gameObject);
+        }
     }
 
 
