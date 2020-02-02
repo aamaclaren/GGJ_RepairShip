@@ -7,14 +7,22 @@ public class SpaceJunkSpawner : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject spaceJunkObj;
     [SerializeField] int poolSize = 20;
+    [SerializeField] int initialInstances = 5;
     [SerializeField] int maxInstances = 25;
     [SerializeField] float spawnInterval = 1;
 
     [SerializeField] float minSpawRange = 5;
     [SerializeField] float maxSpawnRange = 20;
 
+    [SerializeField] float minSpawnForce = 5;
+    [SerializeField] float maxSpawnForce = 25;
+    [SerializeField] float minSpawnTorque = 0.5f;
+    [SerializeField] float maxSpawnTorque = 2.5f;
+
     [SerializeField] float minScale = 1;
     [SerializeField] float maxScale = 3;
+
+    [SerializeField] bool isAttachableToPlayer = true;
 
     private float time;
 
@@ -26,6 +34,7 @@ public class SpaceJunkSpawner : MonoBehaviour
     {
         pool = new ResourcePool(spaceJunkObj, poolSize);
         setSpaceJunkContainer();
+        spawnInitialInstances();
     }
 
     void Update() {
@@ -39,6 +48,12 @@ public class SpaceJunkSpawner : MonoBehaviour
         if(spaceJunkContainer == null)
         {
             spaceJunkContainer = new GameObject(spaceJunkContainerName);
+        }
+    }
+
+    private void spawnInitialInstances(){
+        while(currentInstances < initialInstances && currentInstances < maxInstances){
+            spawnAroundPlayer();
         }
     }
 
@@ -64,7 +79,18 @@ public class SpaceJunkSpawner : MonoBehaviour
         float scaleFactor = Random.Range(minScale, maxScale);
         spawnedPoolObject.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
 
-        spawnedPoolObject.transform.parent = spaceJunkContainer.transform;
+        spawnedPoolObject.transform.rotation = Random.rotation;
+        spawnedPoolObject.GetComponent<Rigidbody>().AddForce(spawnedPoolObject.transform.forward * Random.Range(minSpawnForce, maxSpawnForce), ForceMode.Impulse);
+        spawnedPoolObject.GetComponent<Rigidbody>().AddTorque(spawnPosOffset * Random.Range(minSpawnTorque, maxSpawnTorque));
+
+        if(isAttachableToPlayer) {
+            GameObject emptyParent = new GameObject("SpaceJunkContainer");
+            emptyParent.transform.parent = spaceJunkContainer.transform;
+            spawnedPoolObject.transform.parent = emptyParent.transform;
+        }
+        else {
+            spawnedPoolObject.transform.parent = spaceJunkContainer.transform;
+        }
     }
 
     public void despawnListener(GameObject spawendObj) {

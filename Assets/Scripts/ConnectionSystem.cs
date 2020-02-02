@@ -18,25 +18,47 @@ public class ConnectionSystem : MonoBehaviour {
 	private int health;
 	private Rigidbody rb;
 
-	// Use this for initialization
+    Vector3 scale;
+    // Use this for initialization
     void Awake() {
 
         rb = GetComponent<Rigidbody>();
         health = defaultHealth;
+        scale = transform.localScale;
     }
 
+    private void Update()
+    {
+
+    }
     // if the object touches the ship (or its connected parts), connect to it
     private void OnTriggerEnter(Collider other) {
     	if (isConnectable && currState == ConnectionSystem.State.loose) {
 	        ConnectionSystem otherCS = other.gameObject.GetComponent<ConnectionSystem>();
-	        if (otherCS != null && otherCS.currState == ConnectionSystem.State.connected && GM.gm.GetPlayerCS().isConnectable) {
-	        	transform.SetParent(other.gameObject.transform);
-	        	currState = ConnectionSystem.State.connected;
+            Debug.Log(otherCS); 
+	        if (otherCS != null && otherCS.currState == ConnectionSystem.State.connected && GM.gm.player.GetComponent<ConnectionSystem>().isConnectable) {
+                //transform.SetParent(other.gameObject.transform);
+                
+                if (transform.parent != null)
+                {
+                    if (other.tag == "Player")
+                    {
+                        transform.SetParent(other.transform);
+                    }
+                    else
+                    {
+                        if (other.transform.parent != null)
+                        {
+                            transform.parent.SetParent(other.transform.parent);
+                        }
+                        //transform.parent.SetParent(other.gameObject.transform);
+                    }
+                }
+                currState = ConnectionSystem.State.connected;
 	        	gameObject.layer = 8;
 	        	rb.velocity = Vector3.zero;
 	        	rb.angularVelocity = Vector3.zero;
 	        	rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
-	        	//GM.gm.sounds[0].Play();
                 if(other.tag=="Player")
                     other.gameObject.GetComponent<WeaponSystem>().addnewWeapon(GetComponent<WeaponLogic>());
                 else
