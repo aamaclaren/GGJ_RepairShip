@@ -790,9 +790,9 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
-<<<<<<< HEAD
+
 --- !u!65 &598638992
-=======
+
 --- !u!114 &496391776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,7 +816,7 @@ MonoBehaviour:
   bullet: {fileID: 6317580343661033795, guid: 329ec32aa0d614ffdbb746a9851bdad5, type: 3}
   razerLength: 15
 --- !u!65 &496391777
->>>>>>> c10d2e6f6fd0c664e6bd2e8cfc435750de66fb38
+
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
