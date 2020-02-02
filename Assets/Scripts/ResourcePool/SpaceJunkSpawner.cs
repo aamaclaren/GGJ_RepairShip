@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpaceJunkSpawner : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] GameObject resourcePoolObj;
+    [SerializeField] GameObject spaceJunkObj;
     [SerializeField] int poolSize = 20;
     [SerializeField] float spawnInterval = 1;
 
@@ -22,7 +22,7 @@ public class SpaceJunkSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pool = new ResourcePool(resourcePoolObj, poolSize);
+        pool = new ResourcePool(spaceJunkObj, poolSize);
         setSpaceJunkContainer();
     }
 
