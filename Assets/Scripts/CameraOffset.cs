@@ -15,10 +15,11 @@ public class CameraOffset : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L)) { off = true; }
+        /*if (Input.GetKeyDown(KeyCode.L)) { off = true; }
         if (off)
         {
-            transform.position = offset - GM.gm.player.transform.position;
-        }
+            transform.position = offset + GM.gm.player.transform.position;
+        }*/
+        transform.position = offset + GM.gm.player.transform.position;
     }
 }

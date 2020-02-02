@@ -172,6 +172,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_Gameplay
       objectReference: {fileID: 0}
+    - target: {fileID: 6614193903577175170, guid: 392374b70119a4e429ef524b0fb6cc43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6614193903577175230, guid: 392374b70119a4e429ef524b0fb6cc43,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -519,6 +524,7 @@ MonoBehaviour:
   torqueSpeed: 5
   maxAngularSpeed: 3
   rotateByTorque: 0
+  height: 0
 --- !u!54 &1638572041
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -671,7 +677,7 @@ PrefabInstance:
     - target: {fileID: 6540960254132089496, guid: 21114d658d0824b00a0d7cf9bdcdef7b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.329
+      value: 11.5
       objectReference: {fileID: 0}
     - target: {fileID: 6540960254132089496, guid: 21114d658d0824b00a0d7cf9bdcdef7b,
         type: 3}
