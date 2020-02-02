@@ -210,6 +210,11 @@ public class EnemyLogic : MonoBehaviour
                 }
                 break;
             case EnemyState.Aiming:
+                if (dist_to_player > attackRadius*2) {
+                    m_state = EnemyState.Idle;
+                    break;
+                }
+
                 Quaternion q = Quaternion.LookRotation((player.transform.position - transform.position));
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, q, m_angularSpeed);
                 //Debug.Log(transform.rotation.eulerAngles.y - q.eulerAngles.y);
@@ -330,7 +335,7 @@ public class EnemyLogic : MonoBehaviour
 
         dir = Quaternion.Euler(0,Mathf.Pow(-1, Random.Range(1,3)) * Random.Range(75, 95), 0) * dir;
 
-        return transform.position + dir*10;
+        return transform.position + dir*20;
 
     }
 
@@ -338,6 +343,7 @@ public class EnemyLogic : MonoBehaviour
         //might need to rewrite this funciton
         m_target = player.transform.position;
         m_movingDir = (m_target - transform.position).normalized;
+        m_movingDir.y = 0;
         return player.transform.position;
     }
 
