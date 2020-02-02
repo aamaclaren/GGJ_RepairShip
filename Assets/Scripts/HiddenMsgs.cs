@@ -34,10 +34,18 @@ public class HiddenMsgs : MonoBehaviour
         blipCoroutine = null;
         transform.localScale = Vector3.one;
     }
+    private IEnumerator HelpMenu()
+    {
+        yield return new WaitForSeconds(1);
+        showHelp();
+        yield return new WaitForSeconds(5);
+        hideHelp();
+    }
 
     GameObject[] pauseObjects;
     GameObject[] loseObjects;
     GameObject[] winObjects;
+    GameObject[] helpObjects;
     private int hideCase = 0;
 
     void Start()
@@ -46,9 +54,13 @@ public class HiddenMsgs : MonoBehaviour
         pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
         loseObjects = GameObject.FindGameObjectsWithTag("ShowOnLose");
         winObjects = GameObject.FindGameObjectsWithTag("ShowOnWin");
+        helpObjects = GameObject.FindGameObjectsWithTag("ShowOnHelp");
         hidePause();
         hideLose();
         hideWin();
+        hideHelp();
+
+        StartCoroutine(HelpMenu());
     }
 
     // Update is called once per frame
@@ -120,8 +132,15 @@ public class HiddenMsgs : MonoBehaviour
         }
         hideCase = 0;
     }
+    public void hideHelp()
+    {
+        foreach (GameObject g in helpObjects)
+        {
+            g.SetActive(false);
+        }
+        
+    }
 
-    
     //show commands
     public void showPause()
     {
@@ -158,7 +177,14 @@ public class HiddenMsgs : MonoBehaviour
             hideCase = 1;
         }
     }
-
+    public void showHelp()
+    {
+        
+        foreach (GameObject g in helpObjects)
+        {
+            g.SetActive(true);
+        }
+    }
 
     //Buttons
     public void MainMenu()
