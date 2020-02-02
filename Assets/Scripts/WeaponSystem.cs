@@ -32,4 +32,8 @@ public class WeaponSystem : MonoBehaviour
 
 
     }
+
+    public void addnewWeapon(WeaponLogic w) {
+        weapons.Add(w);
+    }
 }

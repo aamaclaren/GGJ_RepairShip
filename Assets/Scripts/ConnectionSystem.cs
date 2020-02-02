@@ -20,6 +20,7 @@ public class ConnectionSystem : MonoBehaviour {
 
 	// Use this for initialization
     void Awake() {
+
         rb = GetComponent<Rigidbody>();
         health = defaultHealth;
     }
@@ -35,8 +36,12 @@ public class ConnectionSystem : MonoBehaviour {
 	        	rb.velocity = Vector3.zero;
 	        	rb.angularVelocity = Vector3.zero;
 	        	rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
-	        	GM.gm.sounds[0].Play();
-	        }
+	        	//GM.gm.sounds[0].Play();
+                if(other.tag=="Player")
+                    other.gameObject.GetComponent<WeaponSystem>().addnewWeapon(GetComponent<WeaponLogic>());
+                else
+                    other.gameObject.GetComponentInParent<WeaponSystem>().addnewWeapon(GetComponent<WeaponLogic>());
+            }
 	    }
     }
 

@@ -23,7 +23,8 @@ public class WeaponLogic : MonoBehaviour
     [SerializeField]
     private float TimeBtwShots;
     private float ShotTimeCounter;
-    LayerMask mask = ~(1 << 11);
+
+    int mask = 1 << 11;
 
     [Header("MachineGun variables")]
     //variables for machine gun
@@ -61,6 +62,7 @@ public class WeaponLogic : MonoBehaviour
         else {
             GetComponent<LineRenderer>().enabled = false;
         }
+        mask = ~mask;
     }
 
     // Update is called once per frame
@@ -93,6 +95,7 @@ public class WeaponLogic : MonoBehaviour
         fireCount = 0;
         shooting_counter = 0;
         ShotTimeCounter = 0;
+        if(m_weaponType==WeaponType.Turrent)line.enabled = false;
     }
 
     public void useMachineGun()
@@ -151,10 +154,10 @@ public class WeaponLogic : MonoBehaviour
                 line.SetPosition(0, ray.origin);
 
                 RaycastHit hit;
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out hit, 100, mask))
                 {
-                    Debug.Log(hit.collider.gameObject);
-                    line.SetPosition(1, hit.collider.gameObject.transform.position);
+                    
+                    line.SetPosition(1, hit.point);
                     //Damage health here
 
                 }
