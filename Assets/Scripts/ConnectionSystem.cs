@@ -13,6 +13,8 @@ public class ConnectionSystem : MonoBehaviour {
 	public State currState = State.loose;
 	public int defaultHealth = 10;
 	public int mass = 1;
+	// the force at which objects are pushed away from the ship when they're disconnected
+	public int disconnectForce = 150;
 	public bool isConnectable = true;
 	public bool isShipCore = false;
 
@@ -86,7 +88,7 @@ public class ConnectionSystem : MonoBehaviour {
 
     // this disconnects the current part (along with its children) from the ship
     private void Disconnect() {
-    	transform.SetParent(null);
+    	transform.parent.SetParent(null);
     	GM.gm.SetMass(GetMassWithChildren());
     	currState = ConnectionSystem.State.loose;
     	gameObject.layer = 9;
@@ -95,7 +97,7 @@ public class ConnectionSystem : MonoBehaviour {
     		child.gameObject.GetComponent<ConnectionSystem>().currState = ConnectionSystem.State.loose;
     		child.gameObject.layer = 9;
     	}
-    	rb.AddForce((transform.position - GM.gm.player.transform.position).normalized * 50);
+    	rb.AddForce((transform.position - GM.gm.player.transform.position).normalized * disconnectForce);
     	health = defaultHealth;
     }
     private void LateUpdate()
