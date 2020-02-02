@@ -9,6 +9,7 @@ TagManager:
   - ShowOnLose
   - Title
   - Enemy
+  - ShowOnHelp
   layers:
   - Default
   - TransparentFX

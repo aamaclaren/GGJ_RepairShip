@@ -19,6 +19,12 @@ public class HiddenMsgs : MonoBehaviour
     public Text massx;
     private int count = 1;
 
+    GameObject[] pauseObjects;
+    GameObject[] loseObjects;
+    GameObject[] winObjects;
+    GameObject[] helpObjects;
+    private int hideCase = 0;
+
     private IEnumerator blipanimation()
     {
 
@@ -34,11 +40,15 @@ public class HiddenMsgs : MonoBehaviour
         blipCoroutine = null;
         transform.localScale = Vector3.one;
     }
+    private IEnumerator HelpMenu()
+    {
+        yield return new WaitForSeconds(1);
+        showHelp();
+        yield return new WaitForSeconds(5);
+        hideHelp();
+    }
 
-    GameObject[] pauseObjects;
-    GameObject[] loseObjects;
-    GameObject[] winObjects;
-    private int hideCase = 0;
+
 
     void Start()
     {
@@ -46,33 +56,19 @@ public class HiddenMsgs : MonoBehaviour
         pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
         loseObjects = GameObject.FindGameObjectsWithTag("ShowOnLose");
         winObjects = GameObject.FindGameObjectsWithTag("ShowOnWin");
+        helpObjects = GameObject.FindGameObjectsWithTag("ShowOnHelp");
+        print("Test");
         hidePause();
         hideLose();
         hideWin();
+        hideHelp();
+
+        StartCoroutine(HelpMenu());
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))                                            //blip if
-        //{
-        //    count++;
-        //    massx.text = "Mass: " + count.ToString();
-        //    if (blipCoroutine == null)
-        //    {
-        //        blipCoroutine = StartCoroutine(blipanimation());
-        //    }
-        //    else
-        //    {
-        //        start = Time.timeSinceLevelLoad;
-        //    }
-
-        //}
-        //if (health <= 0)
-        //{
-        //    showLose();
-        //}
-
         if (Input.GetKeyDown(KeyCode.Escape))                   //options
         {
             if (Time.timeScale == 1)
@@ -87,11 +83,6 @@ public class HiddenMsgs : MonoBehaviour
                 hidePause();
             }
         }
-
-        //if (Input.GetKeyDown(KeyCode.W))                    //win
-        //{
-        //    showWin();
-        //}
     }
 
     
@@ -120,8 +111,15 @@ public class HiddenMsgs : MonoBehaviour
         }
         hideCase = 0;
     }
+    public void hideHelp()
+    {
+        foreach (GameObject g in helpObjects)
+        {
+            g.SetActive(false);
+        }
+        
+    }
 
-    
     //show commands
     public void showPause()
     {
@@ -158,7 +156,14 @@ public class HiddenMsgs : MonoBehaviour
             hideCase = 1;
         }
     }
-
+    public void showHelp()
+    {
+        
+        foreach (GameObject g in helpObjects)
+        {
+            g.SetActive(true);
+        }
+    }
 
     //Buttons
     public void MainMenu()
@@ -182,10 +187,16 @@ public class HiddenMsgs : MonoBehaviour
     {
         hull.text = "Hull Integrity: " + h.ToString() + "%";
     }
-
-    //mass
     public void setMass(int m)
     {
         massx.text = "Mass: " + m.ToString();
+        if (blipCoroutine == null)
+        {
+            blipCoroutine = StartCoroutine(blipanimation());
+        }
+        else
+        {
+            start = Time.timeSinceLevelLoad;
+        }
     }
 }
