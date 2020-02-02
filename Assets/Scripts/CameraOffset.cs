@@ -26,7 +26,7 @@ public class CameraOffset : MonoBehaviour
             transform.position = offset + GM.gm.player.transform.position;
         }*/
         // transform.position = offset + GM.gm.player.transform.position;
-        MoveCamera(GM.gm.GetLargestRadius() * intensity + offset + GM.gm.player.transform.position);
+        MoveCamera(GM.gm.GetLargestRadius() * intensity + offset + GM.gm.player.transform.position.y);
     }
 
     private void MoveCamera(float newPos = 10) {
