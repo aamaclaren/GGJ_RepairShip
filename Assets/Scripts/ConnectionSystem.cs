@@ -48,14 +48,16 @@ public class ConnectionSystem : MonoBehaviour {
                     if (other.tag == "Player")
                     {
                         transform.parent.SetParent(other.transform);
-                        GM.gm.SetMass(GetMassWithChildren());
+                        GM.gm.SetMass(GM.gm.GetMassWithChildren());
+                        GM.gm.RefreshLargestRadius();
                     }
                     else
                     {
                         if (other.transform.parent != null)
                         {
                             transform.parent.SetParent(other.transform.parent);
-                            GM.gm.SetMass(GetMassWithChildren());
+                            GM.gm.SetMass(GM.gm.GetMassWithChildren());
+                            GM.gm.RefreshLargestRadius();
                         }
                         //transform.parent.SetParent(other.gameObject.transform);
                     }
@@ -89,7 +91,8 @@ public class ConnectionSystem : MonoBehaviour {
     // this disconnects the current part (along with its children) from the ship
     private void Disconnect() {
     	transform.parent.SetParent(null);
-    	GM.gm.SetMass(GetMassWithChildren());
+    	GM.gm.SetMass(GM.gm.GetMassWithChildren());
+    	GM.gm.RefreshLargestRadius();
     	currState = ConnectionSystem.State.loose;
     	gameObject.layer = 9;
     	rb.constraints = RigidbodyConstraints.None;
@@ -108,17 +111,5 @@ public class ConnectionSystem : MonoBehaviour {
             transform.localRotation = localRot;
         }
         //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
-    }
-
-    // returns the combined mass of this part + all of its children + all of their children...
-    private int GetMassWithChildren() {
-    	int totalMass = 0;
-    	foreach (ConnectionSystem child in GM.gm.player.gameObject.GetComponentsInChildren<ConnectionSystem>()) {
-    		totalMass += child.mass;
-    	}
-    	// foreach (Transform child in gameObject.GetComponentsInChildren<Transform>()) {
-    	// 	Debug.Log(child.name);
-    	// }
-    	return totalMass;
     }
 }
