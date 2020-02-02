@@ -18,7 +18,7 @@ public class WeaponSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1")) { 
+        /*if (Input.GetButton("Fire1")) { 
             foreach(WeaponLogic w in weapons) {
                 w.fire();
             }
@@ -28,7 +28,7 @@ public class WeaponSystem : MonoBehaviour
             {
                 w.stopfiring();
             }
-        }
+        }*/
 
 
     }

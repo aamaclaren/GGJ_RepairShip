@@ -149,7 +149,9 @@ public class PlayerController : MonoBehaviour
         playerIsInvincible = false;
         cs.isConnectable = true;
     }
-
+    private void OnTriggerEnter(Collider other) {
+        //Debug.Log("random object " + other.gameObject);
+    }
     public void StartFlashing()
     {
         StartCoroutine(Flashing());

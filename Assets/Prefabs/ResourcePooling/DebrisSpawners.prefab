@@ -144,11 +144,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frame001Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
 --- !u!4 &6405152546689820440 stripped
@@ -249,11 +244,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame002Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
@@ -356,11 +346,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxSmall002Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
 --- !u!4 &6405152546894618502 stripped
@@ -461,11 +446,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrateSmall001Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
@@ -568,11 +548,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrateLarge002Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
 --- !u!4 &6405152547041340681 stripped
@@ -673,11 +648,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrateLarge001Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
@@ -780,11 +750,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipeLong001Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
 --- !u!4 &6405152546061385611 stripped
@@ -885,11 +850,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ThrusterSpawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
@@ -992,11 +952,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CylinderSmallSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
 --- !u!4 &6405152546209569439 stripped
@@ -1097,11 +1052,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OrbSpawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
@@ -1204,11 +1154,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frame003Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
 --- !u!4 &6405152546497182120 stripped
@@ -1310,11 +1255,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DishSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
 --- !u!4 &6405152547757475718 stripped
@@ -1350,12 +1290,6 @@ PrefabInstance:
       propertyPath: maxScale
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656329, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: spaceJunkObj
-      value: 
-      objectReference: {fileID: 485184893623862020, guid: 4bd9cc46dc349634a8bd31c29d518d5d,
-        type: 3}
     - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1415,11 +1349,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BoxSmall001Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
@@ -1522,11 +1451,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipeLong002Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
 --- !u!4 &6405152547237159320 stripped
@@ -1628,11 +1552,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrateSmallSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
 --- !u!4 &6405152547278212731 stripped
@@ -1733,11 +1652,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PipeBundleSpawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}

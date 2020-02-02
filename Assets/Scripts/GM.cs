@@ -46,7 +46,7 @@ public class GM : MonoBehaviour
         }
 
         // flashing
-        playerController.StartFlashing();
+        //playerController.StartFlashing();
         //if (damage > 0) {
           //  playerController.StartSpinning();
         //}

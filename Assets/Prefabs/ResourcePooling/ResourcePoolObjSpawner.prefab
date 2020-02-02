@@ -44,8 +44,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  resourcePoolObj: {fileID: 0}
+  spaceJunkObj: {fileID: 3830155954238084440, guid: 2e1e60384fd3972499a310b701ed63fd,
+    type: 3}
   poolSize: 20
+  maxInstances: 25
   spawnInterval: 3
-  minSpawRange: 5
+  initialInstances: 5
+  minSpawnRange: 5
   maxSpawnRange: 20
+  minSpawnForce: 5
+  maxSpawnForce: 25
+  minSpawnTorque: 0.5
+  maxSpawnTorque: 2.5
+  minScale: 1
+  maxScale: 3
+  isAttachableToPlayer: 1
+  isPlayerWeapon: 0

@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 8892840423732299980}
   - component: {fileID: -1175865529980934858}
   - component: {fileID: 3319414233912152723}
+  - component: {fileID: -3103228643001379183}
   m_Layer: 0
   m_Name: PipeLong002
   m_TagString: Untagged
@@ -135,9 +136,27 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8379349323357388989}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -6915433345098446472, guid: 50cc0621c21127d4ab924d92e19789e1, type: 3}
+--- !u!114 &-3103228643001379183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8379349323357388989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7995d2c42ab2b745b2efab5f92c36e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currState: 0
+  defaultHealth: 10
+  mass: 1
+  disconnectForce: 150
+  isConnectable: 1
+  isShipCore: 0

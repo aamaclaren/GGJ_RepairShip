@@ -10,6 +10,8 @@ public class ConnectionSystem : MonoBehaviour {
 		loose,
 		connected
 	};
+
+    public bool isAttached = false;
 	public State currState = State.loose;
 	public int defaultHealth = 10;
 	public int mass = 1;
@@ -20,9 +22,10 @@ public class ConnectionSystem : MonoBehaviour {
 
 	private int health;
 	private Rigidbody rb;
-
+    public bool sleep;
     Vector3 scale;
     Quaternion localRot;
+    public Rigidbody randomObj;
     // Use this for initialization
     void Awake() {
 
@@ -33,6 +36,9 @@ public class ConnectionSystem : MonoBehaviour {
 
     private void Update()
     {
+        if (sleep) {
+            //randomObj.Sleep();
+        }
     }
     // if the object touches the ship (or its connected parts), connect to it
     private void OnTriggerEnter(Collider other) {
@@ -43,24 +49,79 @@ public class ConnectionSystem : MonoBehaviour {
                 //transform.SetParent(other.gameObject.transform);
                 localRot = transform.localRotation;
                 Debug.Log(localRot);
-                if (transform.parent != null)
-                {
-                    if (other.tag == "Player")
+                if (other.tag == "Player")
                     {
-                        transform.parent.SetParent(other.transform);
+                        Debug.Log("parent transform");
+                        transform.SetParent(other.transform);
                         GM.gm.SetMass(GM.gm.GetMassWithChildren());
                         GM.gm.RefreshLargestRadius();
+                        isAttached = true;
+                        currState = ConnectionSystem.State.connected;
+                        gameObject.layer = 8;
+                        tag = "connected";
+                        rb.velocity = Vector3.zero;
+                        rb.angularVelocity = Vector3.zero;
+                        rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
                     }
-                    else
+                else 
+                {
+                    /*if (otherCS.isAttached) 
                     {
-                        if (other.transform.parent != null)
-                        {
-                            transform.parent.SetParent(other.transform.parent);
-                            GM.gm.SetMass(GM.gm.GetMassWithChildren());
-                            GM.gm.RefreshLargestRadius();
-                        }
-                        //transform.parent.SetParent(other.gameObject.transform);
+                        Debug.Log("other cs");
+                        transform.SetParent(other.transform);
+                        currState = ConnectionSystem.State.connected;
+                                    gameObject.layer = 8;
+                                    rb.velocity = Vector3.zero;
+                                    rb.angularVelocity = Vector3.zero;
+                                    rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
+
                     }
+                    else 
+                    {
+                        if (isAttached) 
+                        {
+                            Debug.Log("current cs");
+                            other.transform.SetParent(transform);
+                            currState = ConnectionSystem.State.connected;
+                                    gameObject.layer = 8;
+                                    rb.velocity = Vector3.zero;
+                                    rb.angularVelocity = Vector3.zero;
+                                    rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
+                        }
+                    }
+                            /*if (otherCS.isAttached) 
+                            {
+                                    Debug.Log("firing off " + other.gameObject);
+
+                                    
+                                    other.transform.gameObject.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+                                    other.transform.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                                    other.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                                    transform.SetParent(other.transform);
+                                    GM.gm.SetMass(GM.gm.GetMassWithChildren());
+                                    GM.gm.RefreshLargestRadius();
+
+                                    sleep = true;
+                                    randomObj = other.transform.gameObject.GetComponent<Rigidbody>();
+                                    currState = ConnectionSystem.State.connected;
+                                    gameObject.layer = 8;
+                                    rb.velocity = Vector3.zero;
+                                    rb.angularVelocity = Vector3.zero;
+                                    rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
+                                
+                                
+                            }*/
+                    if (other.tag == "connected") {
+                        transform.SetParent(other.transform);
+                        isAttached = true;
+                        currState = ConnectionSystem.State.connected;
+                        gameObject.layer = 8;
+                        other.tag = "connected";
+                        rb.velocity = Vector3.zero;
+                        rb.angularVelocity = Vector3.zero;
+                        rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
+                    }
+                  
                 }
                 currState = ConnectionSystem.State.connected;
 	        	gameObject.layer = 8;
@@ -69,8 +130,10 @@ public class ConnectionSystem : MonoBehaviour {
 	        	rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
                 if(other.tag=="Player")
                     other.gameObject.GetComponent<WeaponSystem>().addnewWeapon(GetComponent<WeaponLogic>());
-                else
-                    other.gameObject.GetComponentInParent<WeaponSystem>().addnewWeapon(GetComponent<WeaponLogic>());
+                else {
+
+                }
+                    //other.gameObject.GetComponentInParent<WeaponSystem>().addnewWeapon(GetComponent<WeaponLogic>());
             }
 	    }
     }

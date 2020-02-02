@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6011144503300362136}
   - component: {fileID: 651029330264665155}
   - component: {fileID: 4611017809637941790}
+  - component: {fileID: -3862780745333637535}
   m_Layer: 0
   m_Name: Dish
   m_TagString: Untagged
@@ -57,12 +58,30 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105931342058184022}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -7163022220184469937, guid: 50cc0621c21127d4ab924d92e19789e1, type: 3}
+--- !u!114 &-3862780745333637535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105931342058184022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7995d2c42ab2b745b2efab5f92c36e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currState: 0
+  defaultHealth: 10
+  mass: 1
+  disconnectForce: 150
+  isConnectable: 1
+  isShipCore: 0
 --- !u!1 &4252318000149951016
 GameObject:
   m_ObjectHideFlags: 0

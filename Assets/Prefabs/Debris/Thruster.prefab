@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2093015034259686455}
   - component: {fileID: -5975022366884767062}
   - component: {fileID: 1122915181576216384}
+  - component: {fileID: 3356261901970781097}
   m_Layer: 0
   m_Name: Thruster
   m_TagString: Untagged
@@ -57,12 +58,30 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4637005637192601125}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.82
   m_Height: 4
   m_Direction: 2
   m_Center: {x: -0.02151373, y: 0.000225842, z: 0.002255976}
+--- !u!114 &3356261901970781097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637005637192601125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7995d2c42ab2b745b2efab5f92c36e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currState: 0
+  defaultHealth: 10
+  mass: 1
+  disconnectForce: 150
+  isConnectable: 1
+  isShipCore: 0
 --- !u!1 &8818259570745845848
 GameObject:
   m_ObjectHideFlags: 0

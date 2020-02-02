@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3643595584645633078}
   - component: {fileID: 6833140171414292006}
   - component: {fileID: 3938308487765479315}
+  - component: {fileID: -4721678954903392869}
   m_Layer: 0
   m_Name: BoxSmall002
   m_TagString: Untagged
@@ -57,11 +58,29 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2624525212510087485}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4721678954903392869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624525212510087485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7995d2c42ab2b745b2efab5f92c36e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currState: 0
+  defaultHealth: 10
+  mass: 1
+  disconnectForce: 150
+  isConnectable: 1
+  isShipCore: 0
 --- !u!1 &4969805163888433605
 GameObject:
   m_ObjectHideFlags: 0

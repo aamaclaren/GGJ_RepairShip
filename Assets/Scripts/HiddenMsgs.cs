@@ -185,11 +185,11 @@ public class HiddenMsgs : MonoBehaviour
     //health
     public void UpdateHealth()
     {
-        hull.text = "Hull Integrity: " + GM.gm.playerHealth.ToString() + "%";
+        //hull.text = "Hull Integrity: " + GM.gm.playerHealth.ToString() + "%";
     }
     public void setMass(int m)
     {
-        massx.text = "Mass: " + m.ToString();
+        /*massx.text = "Mass: " + m.ToString();
         if (blipCoroutine == null)
         {
             blipCoroutine = StartCoroutine(blipanimation());
@@ -197,6 +197,6 @@ public class HiddenMsgs : MonoBehaviour
         else
         {
             start = Time.timeSinceLevelLoad;
-        }
+        }*/
     }
 }
