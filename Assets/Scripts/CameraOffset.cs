@@ -35,7 +35,9 @@ public class CameraOffset : MonoBehaviour
             if (transform.position.y > newPos) {
                 mult = -1;
             }
-            transform.position = new Vector3(transform.position.x, transform.position.y + zoomSpeed * mult * Time.deltaTime, transform.position.z);
+            transform.position = new Vector3(GM.gm.player.transform.position.x, transform.position.y + zoomSpeed * mult * Time.deltaTime, GM.gm.player.transform.position.z);
+        } else {
+            transform.position = new Vector3(GM.gm.player.transform.position.x, transform.position.y, GM.gm.player.transform.position.z);
         }
     }
 }
