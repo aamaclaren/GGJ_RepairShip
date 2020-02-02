@@ -13,6 +13,7 @@ public class GM : MonoBehaviour
 
     private Material defaultPlayerMaterial;
     private PlayerController playerController;
+    private float largestRadius = 0f;
     public HiddenMsgs msg;
 
     // Start is called before the first frame update
@@ -29,6 +30,7 @@ public class GM : MonoBehaviour
 
         defaultPlayerMaterial = player.gameObject.GetComponent<Renderer>().material;
         playerController = player.GetComponent<PlayerController>();
+        RefreshLargestRadius();
     }
 
     public void DamagePlayer(int damage = 100)
@@ -64,5 +66,32 @@ public class GM : MonoBehaviour
 
     public ConnectionSystem GetPlayerCS() {
         return playerController.cs;
+    }
+
+    // returns the combined mass of the ship and all of its parts
+    public int GetMassWithChildren() {
+        int totalMass = 0;
+        foreach (ConnectionSystem child in player.gameObject.GetComponentsInChildren<ConnectionSystem>()) {
+            totalMass += child.mass;
+        }
+        // foreach (Transform child in gameObject.GetComponentsInChildren<Transform>()) {
+        //  Debug.Log(child.name);
+        // }
+        return totalMass;
+    }
+
+    public void RefreshLargestRadius() {
+        float rad = 0f;
+        foreach (Transform child in player.gameObject.GetComponentsInChildren<Transform>()) {
+            if (child.gameObject.GetComponent<Camera>() == null) {
+                float newRadius = Mathf.Abs((child.position - player.transform.position).magnitude);
+                rad = Mathf.Max(rad, newRadius);
+            }
+        }
+        largestRadius = rad;
+    }
+
+    public float GetLargestRadius() {
+        return largestRadius;
     }
 }
