@@ -25,9 +25,7 @@ public class ConnectionSystem : MonoBehaviour {
     public bool sleep;
     Vector3 scale;
     Quaternion localRot;
-<<<<<<< HEAD
     public Rigidbody randomObj;
-=======
 
     //Music variables
     public AudioSource click;
@@ -35,7 +33,6 @@ public class ConnectionSystem : MonoBehaviour {
     public AudioSource thud;
     public AudioSource metalThud;
 
->>>>>>> cad119e454739bd156bb20e7182bf8ccafa8858a
     // Use this for initialization
     void Awake() {
 
@@ -65,7 +62,6 @@ public class ConnectionSystem : MonoBehaviour {
                         transform.SetParent(other.transform);
                         GM.gm.SetMass(GM.gm.GetMassWithChildren());
                         GM.gm.RefreshLargestRadius();
-<<<<<<< HEAD
                         isAttached = true;
                         currState = ConnectionSystem.State.connected;
                         gameObject.layer = 8;
@@ -73,12 +69,11 @@ public class ConnectionSystem : MonoBehaviour {
                         rb.velocity = Vector3.zero;
                         rb.angularVelocity = Vector3.zero;
                         rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
-=======
+                        
                         if (click != null)
                         {
                             click.Play();
                         }
->>>>>>> cad119e454739bd156bb20e7182bf8ccafa8858a
                     }
                 else 
                 {
