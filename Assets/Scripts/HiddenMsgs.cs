@@ -19,6 +19,12 @@ public class HiddenMsgs : MonoBehaviour
     public Text massx;
     private int count = 1;
 
+    GameObject[] pauseObjects;
+    GameObject[] loseObjects;
+    GameObject[] winObjects;
+    GameObject[] helpObjects;
+    private int hideCase = 0;
+
     private IEnumerator blipanimation()
     {
 
@@ -42,11 +48,7 @@ public class HiddenMsgs : MonoBehaviour
         hideHelp();
     }
 
-    GameObject[] pauseObjects;
-    GameObject[] loseObjects;
-    GameObject[] winObjects;
-    GameObject[] helpObjects;
-    private int hideCase = 0;
+
 
     void Start()
     {
@@ -55,6 +57,7 @@ public class HiddenMsgs : MonoBehaviour
         loseObjects = GameObject.FindGameObjectsWithTag("ShowOnLose");
         winObjects = GameObject.FindGameObjectsWithTag("ShowOnWin");
         helpObjects = GameObject.FindGameObjectsWithTag("ShowOnHelp");
+        print("Test");
         hidePause();
         hideLose();
         hideWin();
@@ -66,25 +69,6 @@ public class HiddenMsgs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))                                            //blip if
-        //{
-        //    count++;
-        //    massx.text = "Mass: " + count.ToString();
-        //    if (blipCoroutine == null)
-        //    {
-        //        blipCoroutine = StartCoroutine(blipanimation());
-        //    }
-        //    else
-        //    {
-        //        start = Time.timeSinceLevelLoad;
-        //    }
-
-        //}
-        //if (health <= 0)
-        //{
-        //    showLose();
-        //}
-
         if (Input.GetKeyDown(KeyCode.Escape))                   //options
         {
             if (Time.timeScale == 1)
@@ -99,11 +83,6 @@ public class HiddenMsgs : MonoBehaviour
                 hidePause();
             }
         }
-
-        //if (Input.GetKeyDown(KeyCode.W))                    //win
-        //{
-        //    showWin();
-        //}
     }
 
     
@@ -208,10 +187,16 @@ public class HiddenMsgs : MonoBehaviour
     {
         hull.text = "Hull Integrity: " + h.ToString() + "%";
     }
-
-    //mass
     public void setMass(int m)
     {
         massx.text = "Mass: " + m.ToString();
+        if (blipCoroutine == null)
+        {
+            blipCoroutine = StartCoroutine(blipanimation());
+        }
+        else
+        {
+            start = Time.timeSinceLevelLoad;
+        }
     }
 }
