@@ -47,9 +47,9 @@ public class GM : MonoBehaviour
 
         // flashing
         playerController.StartFlashing();
-        if (damage > 0) {
-            playerController.StartSpinning();
-        }
+        //if (damage > 0) {
+          //  playerController.StartSpinning();
+        //}
     }
 
     public void SetMass(int newMass = 1) {

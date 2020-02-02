@@ -1424,7 +1424,7 @@ MonoBehaviour:
   cs: {fileID: 0}
   playerIsInvincible: 0
   spinningTime: 1
-  spinningSpeed: 100
+  spinningSpeed: 500
   invincibilityTime: 1.5
   numFlashes: 5
   spinning: 0

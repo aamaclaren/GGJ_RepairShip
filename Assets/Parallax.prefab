@@ -156,7 +156,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6540960254985344365}
   - component: {fileID: 6540960254985344366}
-  - component: {fileID: 6540960254985344367}
   - component: {fileID: 6540960254985344360}
   - component: {fileID: 6540960254985344364}
   m_Layer: 0
@@ -187,20 +186,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6540960254985344362}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &6540960254985344367
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6540960254985344362}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &6540960254985344360
 MeshRenderer:
@@ -253,7 +238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parralax: 8
+  UVScroll: {x: 0, y: 0}
   initialOffset: {x: 0.1, y: 0.5}
+  stretch: 1
 --- !u!1 &6540960255718792696
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +251,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6540960255718792703}
   - component: {fileID: 6540960255718792690}
-  - component: {fileID: 6540960255718792691}
   - component: {fileID: 6540960255718792700}
   - component: {fileID: 6540960255718792701}
   - component: {fileID: 6540960255718792702}
@@ -296,20 +282,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6540960255718792696}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &6540960255718792691
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6540960255718792696}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &6540960255718792700
 MeshRenderer:
@@ -374,4 +346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parralax: 4
+  UVScroll: {x: 0, y: 0}
   initialOffset: {x: 0, y: 0}
+  stretch: 1
