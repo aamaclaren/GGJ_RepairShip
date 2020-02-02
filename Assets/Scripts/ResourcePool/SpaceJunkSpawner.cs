@@ -7,6 +7,7 @@ public class SpaceJunkSpawner : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject spaceJunkObj;
     [SerializeField] int poolSize = 20;
+    [SerializeField] int initialInstances = 5;
     [SerializeField] int maxInstances = 25;
     [SerializeField] float spawnInterval = 1;
 
@@ -33,6 +34,7 @@ public class SpaceJunkSpawner : MonoBehaviour
     {
         pool = new ResourcePool(spaceJunkObj, poolSize);
         setSpaceJunkContainer();
+        spawnInitialInstances();
     }
 
     void Update() {
@@ -46,6 +48,12 @@ public class SpaceJunkSpawner : MonoBehaviour
         if(spaceJunkContainer == null)
         {
             spaceJunkContainer = new GameObject(spaceJunkContainerName);
+        }
+    }
+
+    private void spawnInitialInstances(){
+        while(currentInstances < initialInstances && currentInstances < maxInstances){
+            spawnAroundPlayer();
         }
     }
 
