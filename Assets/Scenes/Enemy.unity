@@ -424,7 +424,8 @@ MonoBehaviour:
   - {fileID: 2014687525}
   - {fileID: 1187771143}
   - {fileID: 1473305399}
-  bullet: {fileID: 8658736643286421337, guid: 059a7de552fa2493babbdbf628bcdee1, type: 3}
+  bullet: {fileID: 0}
+  poolSize: 100
   max_firecount: 10
 --- !u!195 &50820243
 NavMeshAgent:
@@ -864,6 +865,7 @@ MonoBehaviour:
   BulletSpeed: 5
   fire_pos: []
   bullet: {fileID: 0}
+  poolSize: 100
   max_firecount: 0
 --- !u!195 &1102945004
 NavMeshAgent:
@@ -1404,7 +1406,8 @@ MonoBehaviour:
   fire_pos:
   - {fileID: 475210724}
   - {fileID: 1666433739}
-  bullet: {fileID: 8658736643286421337, guid: 059a7de552fa2493babbdbf628bcdee1, type: 3}
+  bullet: {fileID: 8658736643286421334, guid: 059a7de552fa2493babbdbf628bcdee1, type: 3}
+  poolSize: 100
   max_firecount: 3
 --- !u!114 &2010265433
 MonoBehaviour:
