@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        Debug.Log(rb.angularVelocity);
+        //Debug.Log(rb.angularVelocity);
     }
 
     public IEnumerator Spinning()

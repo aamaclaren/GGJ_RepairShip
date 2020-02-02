@@ -13,28 +13,35 @@ public class WeaponLogic : MonoBehaviour
     private WeaponType m_weaponType;
 
     [SerializeField]
-    private float BulletSpeed;
-
-    [SerializeField]
-    private float shooting_interval;
-    private float shooting_counter;
-
-    [SerializeField]
-    private float TimeBtwShots;
-    private float ShotTimeCounter;
-
-    [SerializeField]
-    private int fireCountMax;
-    private int fireCount;
-
-    [SerializeField]
     private float damage;
 
     [SerializeField]
     List<Transform> Fire_pos;
+    [SerializeField]
+    private float shooting_interval;
+    private float shooting_counter;
+    [SerializeField]
+    private float TimeBtwShots;
+    private float ShotTimeCounter;
 
+
+    [Header("MachineGun variables")]
+    //variables for machine gun
+    [SerializeField]
+    private float BulletSpeed;
+
+    [SerializeField]
+    private int fireCountMax;
+    private int fireCount;
     public bulletLogic bullet;
 
+
+
+
+    [Header("Turrents variable")]
+    [SerializeField]
+    private float razerLength = 15;
+    LineRenderer line;
 
 
     // Start is called before the first frame update
@@ -44,6 +51,16 @@ public class WeaponLogic : MonoBehaviour
         shooting_counter = shooting_interval;
         ShotTimeCounter = 0;
         bullet.fromEnemy = false;
+
+        if (m_weaponType == WeaponType.Turrent) {
+            line = GetComponent<LineRenderer>();
+            line.positionCount = 2;
+            line.widthMultiplier = 0.5f;
+            line.enabled = false;
+        }
+        else {
+            GetComponent<LineRenderer>().enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -63,6 +80,7 @@ public class WeaponLogic : MonoBehaviour
                 break;
 
             case WeaponType.Turrent:
+                useTurret();
                 break;
             default:
                 break;
@@ -73,7 +91,7 @@ public class WeaponLogic : MonoBehaviour
     public void stopfiring()
     {
         fireCount = 0;
-        shooting_counter = shooting_interval;
+        shooting_counter = 0;
         ShotTimeCounter = 0;
     }
 
@@ -81,22 +99,22 @@ public class WeaponLogic : MonoBehaviour
     {
 
         //check time between attacks
-        if (shooting_counter > 0)
+        if (shooting_counter <= shooting_interval)
         {
-            shooting_counter -= Time.deltaTime;
+            shooting_counter += Time.deltaTime;
         }
         else
         {
 
             //check time between two shots
-            if (ShotTimeCounter > 0)
+            if (ShotTimeCounter <= TimeBtwShots)
             {
-                ShotTimeCounter -= Time.deltaTime;
+                ShotTimeCounter += Time.deltaTime;
             }
             else
             {
                 //Debug.Log(ShotTimeCounter);
-                ShotTimeCounter = TimeBtwShots;
+                ShotTimeCounter = 0;
                 fireCount++;
 
                 foreach (Transform t in Fire_pos)
@@ -109,12 +127,55 @@ public class WeaponLogic : MonoBehaviour
                 if (fireCount >= fireCountMax)
                 {
                     fireCount = 0;
-                    shooting_counter = shooting_interval;
+                    shooting_counter = 0;
                     //need to deactivate game objects and put them back into the pool
                 }
             }
 
         }
+
+    }
+
+    public void useTurret()
+    {
+        if (shooting_counter < shooting_interval) {
+            shooting_counter += Time.deltaTime;
+        }
+        else {
+            if (ShotTimeCounter <= TimeBtwShots)
+            {
+                ShotTimeCounter += Time.deltaTime;
+
+                line.enabled = true;
+                Ray ray = new Ray(Fire_pos[0].position, Fire_pos[0].forward);
+                line.SetPosition(0, ray.origin);
+
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Debug.Log(hit.collider.gameObject);
+                    line.SetPosition(1, hit.collider.gameObject.transform.position);
+                    //Damage health here
+
+                }
+                else
+                {
+                    line.SetPosition(1, ray.GetPoint(razerLength));
+                }
+
+            }
+            else
+            {
+                ShotTimeCounter = 0;
+                shooting_counter = 0;
+                line.enabled = false;
+            }
+
+        }
+
+
+
+
 
     }
 }

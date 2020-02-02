@@ -23,12 +23,12 @@ public class WeaponSystem : MonoBehaviour
                 w.fire();
             }
         }
-        //if (Input.GetButtonUp("Fire1")) {
-        //    foreach (WeaponLogic w in weapons)
-        //    {
-        //        w.stopfiring();
-        //    }
-        //}
+        if (Input.GetButtonUp("Fire1")) {
+            foreach (WeaponLogic w in weapons)
+            {
+                w.stopfiring();
+            }
+        }
 
 
     }
