@@ -24,6 +24,7 @@ public class SpaceJunkSpawner : MonoBehaviour
     [SerializeField] float minScale = 1;
     [SerializeField] float maxScale = 3;
     [SerializeField] bool isAttachableToPlayer = true;
+    [SerializeField] bool isPlayerWeapon = false;
 
 
     private float time;
@@ -87,7 +88,15 @@ public class SpaceJunkSpawner : MonoBehaviour
     }
 
     private GameObject spawnPoolObject(Vector3 spawnPosOffset) {
-        GameObject spawnedPoolObject = pool.Spawn(player.transform.position + spawnPosOffset, Quaternion.identity);
+        Quaternion objRotation = transform.rotation;
+        if(isPlayerWeapon){
+            objRotation.eulerAngles = new Vector3(0, Random.Range(0, 360), 0);
+        }
+        else {
+            objRotation = Random.rotation;
+        }
+
+        GameObject spawnedPoolObject = pool.Spawn(player.transform.position + spawnPosOffset, objRotation);
         spawnedPoolObject.AddComponent<SpaceJunkSpawnTracker>().spawner = this;
         currentInstances += 1;
 
@@ -98,9 +107,8 @@ public class SpaceJunkSpawner : MonoBehaviour
         float scaleFactor = Random.Range(minScale, maxScale);
         obj.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
 
-        obj.transform.rotation = Random.rotation;
         obj.GetComponent<Rigidbody>().AddForce(obj.transform.forward * Random.Range(minSpawnForce, maxSpawnForce), ForceMode.Impulse);
-        obj.GetComponent<Rigidbody>().AddTorque(obj.transform.right * Random.Range(minSpawnTorque, maxSpawnTorque));
+        obj.GetComponent<Rigidbody>().AddTorque(Random.insideUnitSphere.normalized * Random.Range(minSpawnTorque, maxSpawnTorque));
     }
 
     private void setObjParent(GameObject obj) {

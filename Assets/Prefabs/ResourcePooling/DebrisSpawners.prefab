@@ -44,6 +44,7 @@ Transform:
   - {fileID: 6405152546061385611}
   - {fileID: 6405152547237159320}
   - {fileID: 6405152546157076131}
+  - {fileID: 5520753074606313945}
   - {fileID: 3762010416871150189}
   - {fileID: 8968186518135399068}
   - {fileID: 4047874747981086391}
@@ -1746,6 +1747,127 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 929754088849988054}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1772498022462146519
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 929754088870478332}
+    m_Modifications:
+    - target: {fileID: 6054115689025656329, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656329, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: resourcePoolObj
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656329, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: spawnInterval
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656329, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: maxScale
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656329, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: spaceJunkObj
+      value: 
+      objectReference: {fileID: 4637005637192601125, guid: afde7eacfae8f91459dc1e80cc33c133,
+        type: 3}
+    - target: {fileID: 6054115689025656329, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: initialInstances
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656329, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: minSpawnRange
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656329, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: maxSpawnRange
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_Name
+      value: TurretSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054115689025656335, guid: 866d179ec58b6c744875e1f047f87472,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 866d179ec58b6c744875e1f047f87472, type: 3}
+--- !u!4 &5520753074606313945 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
+    type: 3}
+  m_PrefabInstance: {fileID: 1772498022462146519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2914370175481820306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1837,7 +1959,7 @@ PrefabInstance:
     - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
         type: 3}
@@ -2069,7 +2191,7 @@ PrefabInstance:
     - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
         type: 3}
@@ -2195,7 +2317,7 @@ PrefabInstance:
     - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6054115689025656334, guid: 866d179ec58b6c744875e1f047f87472,
         type: 3}
