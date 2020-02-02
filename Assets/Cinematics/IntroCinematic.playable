@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 7.383333333333334
+    m_Start: 6.198095238095239
     m_ClipIn: 0
     m_Asset: {fileID: -1582110182050682256}
     m_Duration: 7.801904761904762
@@ -913,7 +913,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: IntroEmergencyAlarmExtended
   - m_Version: 1
-    m_Start: 12.183333333333334
+    m_Start: 10.760816326530612
     m_ClipIn: 0
     m_Asset: {fileID: 472757917939976908}
     m_Duration: 3.239183673469388
