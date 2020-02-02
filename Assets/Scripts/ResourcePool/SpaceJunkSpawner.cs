@@ -32,6 +32,7 @@ public class SpaceJunkSpawner : MonoBehaviour
     private ResourcePool pool;
     private int currentInstances = 0;
     private GameObject spaceJunkContainer;
+    private string spaceJunkObjParentName = "Space Junk Item Parent";
     // Start is called before the first frame update
     void Start()
     {
@@ -105,20 +106,13 @@ public class SpaceJunkSpawner : MonoBehaviour
 
     private void setInitialObjState(GameObject obj) {
         float scaleFactor = Random.Range(minScale, maxScale);
-        obj.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+        //obj.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
 
         obj.GetComponent<Rigidbody>().AddForce(obj.transform.forward * Random.Range(minSpawnForce, maxSpawnForce), ForceMode.Impulse);
         obj.GetComponent<Rigidbody>().AddTorque(Random.insideUnitSphere.normalized * Random.Range(minSpawnTorque, maxSpawnTorque));
     }
 
     private void setObjParent(GameObject obj) {
-        if(isAttachableToPlayer) {
-            GameObject emptyParent = new GameObject("SpaceJunkContainer");
-            emptyParent.transform.parent = spaceJunkContainer.transform;
-            obj.transform.parent = emptyParent.transform;
-        }
-        else {
-            obj.transform.parent = spaceJunkContainer.transform;
-        }
+        obj.transform.parent = spaceJunkContainer.transform;
     }
 }
