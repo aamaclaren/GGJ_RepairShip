@@ -36,7 +36,12 @@ public class ConnectionSystem : MonoBehaviour {
     	if (isConnectable && currState == ConnectionSystem.State.loose) {
 	        ConnectionSystem otherCS = other.gameObject.GetComponent<ConnectionSystem>();
 	        if (otherCS != null && otherCS.currState == ConnectionSystem.State.connected && GM.gm.GetPlayerCS().isConnectable) {
-                transform.SetParent(other.gameObject.transform);
+                //transform.SetParent(other.gameObject.transform);
+                
+                if (transform.parent != null)
+                {
+                    transform.parent.SetParent(other.gameObject.transform);
+                }
                 currState = ConnectionSystem.State.connected;
 	        	gameObject.layer = 8;
 	        	rb.velocity = Vector3.zero;
