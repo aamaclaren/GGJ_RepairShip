@@ -25,7 +25,17 @@ public class ConnectionSystem : MonoBehaviour {
     public bool sleep;
     Vector3 scale;
     Quaternion localRot;
+<<<<<<< HEAD
     public Rigidbody randomObj;
+=======
+
+    //Music variables
+    public AudioSource click;
+    public AudioSource explosion;
+    public AudioSource thud;
+    public AudioSource metalThud;
+
+>>>>>>> cad119e454739bd156bb20e7182bf8ccafa8858a
     // Use this for initialization
     void Awake() {
 
@@ -55,6 +65,7 @@ public class ConnectionSystem : MonoBehaviour {
                         transform.SetParent(other.transform);
                         GM.gm.SetMass(GM.gm.GetMassWithChildren());
                         GM.gm.RefreshLargestRadius();
+<<<<<<< HEAD
                         isAttached = true;
                         currState = ConnectionSystem.State.connected;
                         gameObject.layer = 8;
@@ -62,6 +73,12 @@ public class ConnectionSystem : MonoBehaviour {
                         rb.velocity = Vector3.zero;
                         rb.angularVelocity = Vector3.zero;
                         rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
+=======
+                        if (click != null)
+                        {
+                            click.Play();
+                        }
+>>>>>>> cad119e454739bd156bb20e7182bf8ccafa8858a
                     }
                 else 
                 {
@@ -80,6 +97,7 @@ public class ConnectionSystem : MonoBehaviour {
                     {
                         if (isAttached) 
                         {
+                            //V1
                             Debug.Log("current cs");
                             other.transform.SetParent(transform);
                             currState = ConnectionSystem.State.connected;
@@ -87,6 +105,15 @@ public class ConnectionSystem : MonoBehaviour {
                                     rb.velocity = Vector3.zero;
                                     rb.angularVelocity = Vector3.zero;
                                     rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
+                            
+                            //V2
+                            transform.parent.SetParent(other.transform.parent);
+                            GM.gm.SetMass(GM.gm.GetMassWithChildren());
+                            GM.gm.RefreshLargestRadius();
+                            if (click != null)
+                            {
+                                click.Play();
+                            }
                         }
                     }
                             /*if (otherCS.isAttached) 
@@ -144,13 +171,25 @@ public class ConnectionSystem : MonoBehaviour {
 	    	health -= damage;
 	    	if (health <= 0) {
 	    		Disconnect();
-	    	}
+                if (explosion != null)
+                {
+                    explosion.Play();
+                }
+            }
 	    	if (isShipCore) {
                 Debug.Log("hittt");
 	    		GM.gm.DamagePlayer(damage);
-	    	} else {
+                if (metalThud != null)
+                {
+                    metalThud.Play();
+                }
+            } else {
 	    		GM.gm.DamagePlayer(0);
-	    	}
+                if (thud != null)
+                {
+                    thud.Play();
+                }
+            }
 	    }
     }
 

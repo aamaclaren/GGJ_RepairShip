@@ -27,6 +27,10 @@ public class PlayerController : MonoBehaviour
     public bool rotateByTorque = true;
     public float height;
     float actualRotationSpeed;
+
+    //Music variables
+    public AudioSource spin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,7 +113,11 @@ public class PlayerController : MonoBehaviour
 
     public void StartSpinning()
     {
-         StartCoroutine(Spinning());
+        if (spin != null)
+        {
+            spin.Play();
+        }
+        StartCoroutine(Spinning());
     }
 
     public IEnumerator Flashing() {
