@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 984696028667242287}
   - component: {fileID: 7686787399391404118}
   - component: {fileID: 4637005637192601124}
+  - component: {fileID: -7339314496047311260}
   m_Layer: 0
   m_Name: Thruster
   m_TagString: Untagged
@@ -93,3 +94,19 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 2
   m_Center: {x: -0.02151373, y: 0.000225842, z: 0.0022559762}
+--- !u!54 &-7339314496047311260
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637005637192601125}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

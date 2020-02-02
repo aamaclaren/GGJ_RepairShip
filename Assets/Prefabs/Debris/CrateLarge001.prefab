@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3417972670685915338}
   - component: {fileID: 1431434031827557680}
   - component: {fileID: 7684906461294627320}
+  - component: {fileID: 4204478346299982911}
   m_Layer: 0
   m_Name: CrateLarge001
   m_TagString: Untagged
@@ -92,3 +93,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.7, y: 1.8, z: 4.3}
   m_Center: {x: 0.00039947033, y: -0.0019265413, z: -0.005038023}
+--- !u!54 &4204478346299982911
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7684906461294627327}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
