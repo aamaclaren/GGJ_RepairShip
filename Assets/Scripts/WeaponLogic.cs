@@ -52,6 +52,7 @@ public class WeaponLogic : MonoBehaviour
         shooting_counter = shooting_interval;
         ShotTimeCounter = 0;
         bullet.fromEnemy = false;
+        bullet.damage = damage;
 
         if (m_weaponType == WeaponType.Turrent) {
             line = GetComponent<LineRenderer>();

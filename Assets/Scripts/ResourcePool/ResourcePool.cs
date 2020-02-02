@@ -42,6 +42,12 @@ public class ResourcePool
 
     public void Despawn(GameObject obj){
         if(inactivePool.Count < poolSize) {
+            
+            Rigidbody objRB = obj.GetComponent<Rigidbody>();
+            if(objRB != null) {
+                objRB.velocity = new Vector3(0, 0, 0);
+            }
+
             obj.SetActive(false);
             inactivePool.Push(obj);
         }

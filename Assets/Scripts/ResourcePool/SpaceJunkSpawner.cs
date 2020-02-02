@@ -64,6 +64,10 @@ public class SpaceJunkSpawner : MonoBehaviour
         float scaleFactor = Random.Range(minScale, maxScale);
         spawnedPoolObject.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
 
+        spawnedPoolObject.transform.rotation = Random.rotation;
+        spawnedPoolObject.GetComponent<Rigidbody>().AddForce(spawnedPoolObject.transform.forward * 20, ForceMode.Impulse);
+        spawnedPoolObject.GetComponent<Rigidbody>().AddTorque(spawnPosOffset * 1.5f);
+
         spawnedPoolObject.transform.parent = spaceJunkContainer.transform;
     }
 

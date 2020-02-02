@@ -47,7 +47,6 @@ public class ConnectionSystem : MonoBehaviour {
 	        	rb.velocity = Vector3.zero;
 	        	rb.angularVelocity = Vector3.zero;
 	        	rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
-	        	//GM.gm.sounds[0].Play();
                 if(other.tag=="Player")
                     other.gameObject.GetComponent<WeaponSystem>().addnewWeapon(GetComponent<WeaponLogic>());
                 else
