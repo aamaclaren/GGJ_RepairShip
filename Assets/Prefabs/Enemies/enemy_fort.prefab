@@ -482,6 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 2
+  m_health: 0
   attackRadius: 15
   m_speed: 3
   m_acceleration: 0
@@ -489,6 +490,8 @@ MonoBehaviour:
   m_Aimingtime: 2
   m_MovingTimeBtwShots: 0
   m_ShootingTimeBtwMoving: 0
+  ambience: {fileID: 24500006, guid: 281e07f9cc975d2478753ee05dc57741, type: 2}
+  combat: {fileID: 4816841484206131867, guid: 281e07f9cc975d2478753ee05dc57741, type: 2}
 --- !u!114 &3304301836582477468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +512,8 @@ MonoBehaviour:
   - {fileID: 3304301834888911659}
   - {fileID: 3304301835604973833}
   - {fileID: 3304301835321143609}
-  bullet: {fileID: 8658736643286421337, guid: 059a7de552fa2493babbdbf628bcdee1, type: 3}
+  bullet: {fileID: 0}
+  poolSize: 100
   max_firecount: 10
 --- !u!54 &3304301836582477471
 Rigidbody:

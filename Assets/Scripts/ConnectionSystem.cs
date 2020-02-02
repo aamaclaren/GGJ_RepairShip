@@ -76,13 +76,14 @@ public class ConnectionSystem : MonoBehaviour {
     }
 
     // call this on a connected part, not the ship itself (if the part in question happens to be the core, this will still take care of it)
-    public void TakeDamage(int damage = 100) {
+    public void TakeDamage(int damage) {
     	if (!GM.gm.PlayerIsInvincible()) {
 	    	health -= damage;
 	    	if (health <= 0) {
 	    		Disconnect();
 	    	}
 	    	if (isShipCore) {
+                Debug.Log("hittt");
 	    		GM.gm.DamagePlayer(damage);
 	    	} else {
 	    		GM.gm.DamagePlayer(0);
@@ -92,7 +93,11 @@ public class ConnectionSystem : MonoBehaviour {
 
     // this disconnects the current part (along with its children) from the ship
     private void Disconnect() {
-    	transform.parent.SetParent(null);
+        if (!isShipCore)
+        {
+            Debug.Log(transform.parent);
+            transform.parent.SetParent(null);
+        }
     	GM.gm.SetMass(GM.gm.GetMassWithChildren());
     	GM.gm.RefreshLargestRadius();
     	currState = ConnectionSystem.State.loose;

@@ -24,7 +24,7 @@ public class ConnectionSystemTest : MonoBehaviour {
 
     void Update() {
         if (takeDamageFlag) {
-            cs.TakeDamage();
+            cs.TakeDamage(1);
             takeDamageFlag = false;
         }
         if (stopFlag) {
