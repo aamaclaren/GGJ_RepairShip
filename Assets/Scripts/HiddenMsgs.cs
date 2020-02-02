@@ -182,4 +182,10 @@ public class HiddenMsgs : MonoBehaviour
     {
         hull.text = "Hull Integrity: " + h.ToString() + "%";
     }
+
+    //mass
+    public void setMass(int m)
+    {
+        massx.text = "Mass: " + m.ToString();
+    }
 }

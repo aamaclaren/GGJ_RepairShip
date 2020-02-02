@@ -12,6 +12,7 @@ public class ConnectionSystem : MonoBehaviour {
 	};
 	public State currState = State.loose;
 	public int defaultHealth = 10;
+	public int mass = 1;
 	public bool isConnectable = true;
 	public bool isShipCore = false;
 
@@ -45,12 +46,14 @@ public class ConnectionSystem : MonoBehaviour {
                     if (other.tag == "Player")
                     {
                         transform.parent.SetParent(other.transform);
+                        GM.gm.SetMass(GetMassWithChildren());
                     }
                     else
                     {
                         if (other.transform.parent != null)
                         {
                             transform.parent.SetParent(other.transform.parent);
+                            GM.gm.SetMass(GetMassWithChildren());
                         }
                         //transform.parent.SetParent(other.gameObject.transform);
                     }
@@ -76,7 +79,7 @@ public class ConnectionSystem : MonoBehaviour {
     	}
     	if (isShipCore) {
     		GM.gm.DamagePlayer(damage);
-    	} else if (!GM.gm.playerIsInvincible()) {
+    	} else if (!GM.gm.PlayerIsInvincible()) {
     		GM.gm.DamagePlayer(0);
     	}
     }
@@ -84,10 +87,11 @@ public class ConnectionSystem : MonoBehaviour {
     // this disconnects the current part (along with its children) from the ship
     private void Disconnect() {
     	transform.SetParent(null);
+    	GM.gm.SetMass(GetMassWithChildren());
     	currState = ConnectionSystem.State.loose;
     	gameObject.layer = 9;
     	rb.constraints = RigidbodyConstraints.None;
-    	foreach (Transform child in gameObject.GetComponentsInChildren<Transform>()) {
+    	foreach (ConnectionSystem child in gameObject.GetComponentsInChildren<ConnectionSystem>()) {
     		child.gameObject.GetComponent<ConnectionSystem>().currState = ConnectionSystem.State.loose;
     		child.gameObject.layer = 9;
     	}
@@ -102,5 +106,17 @@ public class ConnectionSystem : MonoBehaviour {
             transform.localRotation = localRot;
         }
         //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+    }
+
+    // returns the combined mass of this part + all of its children + all of their children...
+    private int GetMassWithChildren() {
+    	int totalMass = 0;
+    	foreach (ConnectionSystem child in GM.gm.player.gameObject.GetComponentsInChildren<ConnectionSystem>()) {
+    		totalMass += child.mass;
+    	}
+    	// foreach (Transform child in gameObject.GetComponentsInChildren<Transform>()) {
+    	// 	Debug.Log(child.name);
+    	// }
+    	return totalMass;
     }
 }
