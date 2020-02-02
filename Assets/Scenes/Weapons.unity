@@ -419,6 +419,18 @@ PrefabInstance:
       propertyPath: m_health
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 3304301836582477470, guid: fafc345b9a02749868da751c5ef15e4f,
+        type: 3}
+      propertyPath: ambience
+      value: 
+      objectReference: {fileID: 24500006, guid: 281e07f9cc975d2478753ee05dc57741,
+        type: 2}
+    - target: {fileID: 3304301836582477470, guid: fafc345b9a02749868da751c5ef15e4f,
+        type: 3}
+      propertyPath: combat
+      value: 
+      objectReference: {fileID: 4816841484206131867, guid: 281e07f9cc975d2478753ee05dc57741,
+        type: 2}
     - target: {fileID: 3304301836582477471, guid: fafc345b9a02749868da751c5ef15e4f,
         type: 3}
       propertyPath: m_Constraints
@@ -426,6 +438,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fafc345b9a02749868da751c5ef15e4f, type: 3}
+--- !u!1001 &553945948
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1578052287959548134, guid: 5b77d9f72bc75d54eba42454775c7967,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578052287959548134, guid: 5b77d9f72bc75d54eba42454775c7967,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578052287959548134, guid: 5b77d9f72bc75d54eba42454775c7967,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578052287959548134, guid: 5b77d9f72bc75d54eba42454775c7967,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578052287959548134, guid: 5b77d9f72bc75d54eba42454775c7967,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578052287959548134, guid: 5b77d9f72bc75d54eba42454775c7967,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578052287959548134, guid: 5b77d9f72bc75d54eba42454775c7967,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578052287959548134, guid: 5b77d9f72bc75d54eba42454775c7967,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578052287959548134, guid: 5b77d9f72bc75d54eba42454775c7967,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578052287959548134, guid: 5b77d9f72bc75d54eba42454775c7967,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578052287959548134, guid: 5b77d9f72bc75d54eba42454775c7967,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578052287959548135, guid: 5b77d9f72bc75d54eba42454775c7967,
+        type: 3}
+      propertyPath: m_Name
+      value: Music
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5b77d9f72bc75d54eba42454775c7967, type: 3}
 --- !u!1001 &592702401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -712,6 +793,18 @@ PrefabInstance:
       propertyPath: m_health
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4742485772622831753, guid: 672f294f00021417c9e1c9785be5dcee,
+        type: 3}
+      propertyPath: ambience
+      value: 
+      objectReference: {fileID: 24500006, guid: 281e07f9cc975d2478753ee05dc57741,
+        type: 2}
+    - target: {fileID: 4742485772622831753, guid: 672f294f00021417c9e1c9785be5dcee,
+        type: 3}
+      propertyPath: combat
+      value: 
+      objectReference: {fileID: 4816841484206131867, guid: 281e07f9cc975d2478753ee05dc57741,
+        type: 2}
     - target: {fileID: 4742485772622831754, guid: 672f294f00021417c9e1c9785be5dcee,
         type: 3}
       propertyPath: m_IsTrigger
@@ -1331,7 +1424,7 @@ MonoBehaviour:
   cs: {fileID: 0}
   playerIsInvincible: 0
   spinningTime: 1
-  spinningSpeed: 100
+  spinningSpeed: 500
   invincibilityTime: 1.5
   numFlashes: 5
   spinning: 0
@@ -1661,6 +1754,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 862588906013283099, guid: da715397bcd004251b48ec6d3aed7c49,
+        type: 3}
+      propertyPath: defaultHealth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 862588906865844482, guid: da715397bcd004251b48ec6d3aed7c49,
         type: 3}
       propertyPath: m_Name
@@ -1900,6 +1998,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2620079083146880871, guid: 03da8af16c343469988bbdb385cc4876,
+        type: 3}
+      propertyPath: defaultHealth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2620079083213721506, guid: 03da8af16c343469988bbdb385cc4876,
         type: 3}
       propertyPath: m_Layer
@@ -1919,6 +2022,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7867907579231981284, guid: 679efbe7b892446be92c42a8925a9f43,
+        type: 3}
+      propertyPath: defaultHealth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7867907579231981287, guid: 679efbe7b892446be92c42a8925a9f43,
         type: 3}
       propertyPath: m_Layer
@@ -2007,6 +2115,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336601279355354706, guid: 27782275395e248ed8be58f15a7bb2ff,
+        type: 3}
+      propertyPath: defaultHealth
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8336601279355354733, guid: 27782275395e248ed8be58f15a7bb2ff,
         type: 3}

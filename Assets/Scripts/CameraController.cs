@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveCamera(GM.gm.GetLargestRadius() * intensity + offset);
+        //MoveCamera(GM.gm.GetLargestRadius() * intensity + offset);
     }
 
     private void MoveCamera(float newPos = 10) {
