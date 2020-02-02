@@ -36,7 +36,7 @@ public class GM : MonoBehaviour
         playerHealth = Mathf.Clamp(playerHealth - damage, 0, 100);
         //HiddenMsgs.setHealth(playerHealth);
         GM.gm.msg.setHealth(playerHealth);
-        if (playerHealth >= 0)
+        if (playerHealth <= 0)
         {
             GM.gm.msg.showLose();
         }
@@ -51,7 +51,7 @@ public class GM : MonoBehaviour
     public void SetMass(int newMass = 1) {
         playerMass = newMass;
         GM.gm.msg.setMass(playerMass);
-        if (newMass >= 3)
+        if (newMass >= 100)
         {
             GM.gm.msg.showWin();
         }
