@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -384,8 +384,8 @@ MonoBehaviour:
   attackRadius: 15
   m_speed: 3
   m_acceleration: 0
-  m_angularSpeed: 0
-  m_Aimingtime: 0
+  m_angularSpeed: 5
+  m_Aimingtime: 2
   m_MovingTimeBtwShots: 0
   m_ShootingTimeBtwMoving: 0
 --- !u!54 &50820241
@@ -419,7 +419,11 @@ MonoBehaviour:
   coolDownTime: 1
   TimeBtwShots: 0.2
   BulletSpeed: 5
-  fire_pos: []
+  fire_pos:
+  - {fileID: 1180579333}
+  - {fileID: 2014687525}
+  - {fileID: 1187771143}
+  - {fileID: 1473305399}
   bullet: {fileID: 8658736643286421337, guid: 059a7de552fa2493babbdbf628bcdee1, type: 3}
   max_firecount: 10
 --- !u!195 &50820243
@@ -838,9 +842,9 @@ MonoBehaviour:
   enemyType: 0
   attackRadius: 20
   m_speed: 5
-  m_acceleration: 0
-  m_angularSpeed: 0
-  m_Aimingtime: 0
+  m_acceleration: 10
+  m_angularSpeed: 20
+  m_Aimingtime: 1
   m_MovingTimeBtwShots: 0
   m_ShootingTimeBtwMoving: 0
 --- !u!114 &1102945003
@@ -868,7 +872,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102944996}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -1397,7 +1401,9 @@ MonoBehaviour:
   coolDownTime: 0.1
   TimeBtwShots: 0.05
   BulletSpeed: 20
-  fire_pos: []
+  fire_pos:
+  - {fileID: 475210724}
+  - {fileID: 1666433739}
   bullet: {fileID: 8658736643286421337, guid: 059a7de552fa2493babbdbf628bcdee1, type: 3}
   max_firecount: 3
 --- !u!114 &2010265433
@@ -1416,10 +1422,10 @@ MonoBehaviour:
   attackRadius: 15
   m_speed: 7
   m_acceleration: 0
-  m_angularSpeed: 0
-  m_Aimingtime: 0
-  m_MovingTimeBtwShots: 0
-  m_ShootingTimeBtwMoving: 0
+  m_angularSpeed: 10
+  m_Aimingtime: 1
+  m_MovingTimeBtwShots: 1
+  m_ShootingTimeBtwMoving: 1
 --- !u!136 &2010265434
 CapsuleCollider:
   m_ObjectHideFlags: 0
