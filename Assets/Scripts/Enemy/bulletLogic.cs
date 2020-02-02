@@ -33,6 +33,11 @@ public class bulletLogic : MonoBehaviour
         if (Time.time - m_startTime >= m_lifetime) destorySelf();
     }
 
+    private void OnEnable()
+    {
+        m_startTime = Time.time;
+    }
+
     public void setDir(Vector3 thedir)
     {
         dir = thedir;
