@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7137552231695798558}
   - component: {fileID: 8881274176172452472}
   - component: {fileID: -4948842379620841566}
+  - component: {fileID: 7696155613536749892}
   m_Layer: 0
   m_Name: Rock.001
   m_TagString: Untagged
@@ -110,3 +111,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -7557192941062307406, guid: 91bbc12e634d8f84ca8d51d201c534d2, type: 3}
+--- !u!114 &7696155613536749892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626525228452448251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd99297353f1bad4ca38ace91ad23a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactDamage: 1
