@@ -9,6 +9,7 @@ public class GM : MonoBehaviour
     public GameObject player;
     public AudioSource[] sounds;
     public int playerHealth = 100;
+    public int playerMass = 1;
 
     private Material defaultPlayerMaterial;
     private PlayerController playerController;
@@ -43,7 +44,12 @@ public class GM : MonoBehaviour
         }
     }
 
-    public bool playerIsInvincible() {
+    public void SetMass(int newMass = 1) {
+        playerMass = newMass;
+        GM.gm.msg.setMass(playerMass);
+    }
+
+    public bool PlayerIsInvincible() {
         return playerController.playerIsInvincible;
     }
 
