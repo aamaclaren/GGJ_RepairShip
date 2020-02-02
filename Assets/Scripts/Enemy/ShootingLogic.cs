@@ -39,10 +39,9 @@ public class ShootingLogic : MonoBehaviour
     {
         isfire = false;
         firecount = 0;
-
-        coolDownCounter = coolDownTime / 2;
+        bullet.GetComponent<bulletLogic>().fromEnemy = true;
+        coolDownCounter = coolDownTime;
         ShotTimeCounter = 0;
-
 
         m_player = GameObject.FindGameObjectWithTag("Player");
 
@@ -116,7 +115,7 @@ public class ShootingLogic : MonoBehaviour
 
         isfire = val;
         firecount = 0;
-        coolDownCounter = coolDownTime / 2;
+        coolDownCounter = coolDownTime;
         ShotTimeCounter = 0;
     }
 

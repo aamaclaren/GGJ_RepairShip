@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8476609785546057447}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 19.29, y: -43.4, z: -30.89}
-  m_LocalScale: {x: 0.7, y: 0.6, z: 0.7}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -109,4 +109,4 @@ MonoBehaviour:
   m_speed: 0
   m_lifetime: 10
   fromEnemy: 0
-  damage: 1
+  damage: 2

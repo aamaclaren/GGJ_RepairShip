@@ -35,7 +35,7 @@ public class ConnectionSystem : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
     	if (isConnectable && currState == ConnectionSystem.State.loose) {
 	        ConnectionSystem otherCS = other.gameObject.GetComponent<ConnectionSystem>();
-            Debug.Log(otherCS); 
+            //Debug.Log(otherCS); 
 	        if (otherCS != null && otherCS.currState == ConnectionSystem.State.connected && GM.gm.player.GetComponent<ConnectionSystem>().isConnectable) {
                 //transform.SetParent(other.gameObject.transform);
                 
