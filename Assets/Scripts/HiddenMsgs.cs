@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+//THIS MANAGAGES UI FOR GAMEPLAY  --   ASK JACK FOR ASSISTANCE FINDING ANYTHING
 public class HiddenMsgs : MonoBehaviour
 {
     public AnimationCurve blip;                                         //block for blip
@@ -55,8 +57,6 @@ public class HiddenMsgs : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))                                            //blip if
         {
             count++;
-            health -= 10;
-            hull.text = "Hull Integrity: " + health.ToString() + "%";
             massx.text = "Mass: " + count.ToString();
             if (blipCoroutine == null)
             {
@@ -177,6 +177,9 @@ public class HiddenMsgs : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-
-
+    //health
+    public void setHealth(int h)
+    {
+        hull.text = "Hull Integrity: " + h.ToString() + "%";
+    }
 }
