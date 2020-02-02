@@ -1262,6 +1262,12 @@ PrefabInstance:
       propertyPath: initialInstances
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6405152547897067808, guid: f76b74899515a224babe4b8ce022f9d1,
+        type: 3}
+      propertyPath: spaceJunkObj
+      value: 
+      objectReference: {fileID: 3830155954238084440, guid: 2e1e60384fd3972499a310b701ed63fd,
+        type: 3}
     - target: {fileID: 6405152547897067814, guid: f76b74899515a224babe4b8ce022f9d1,
         type: 3}
       propertyPath: m_IsActive
