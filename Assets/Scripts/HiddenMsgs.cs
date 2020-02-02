@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+//THIS MANAGAGES UI FOR GAMEPLAY  --   ASK JACK FOR ASSISTANCE FINDING ANYTHING
 public class HiddenMsgs : MonoBehaviour
 {
     public AnimationCurve blip;                                         //block for blip
@@ -52,46 +54,44 @@ public class HiddenMsgs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))                                            //blip if
-        {
-            count++;
-            health -= 10;
-            hull.text = "Hull Integrity: " + health.ToString() + "%";
-            massx.text = "Mass: " + count.ToString();
-            if (blipCoroutine == null)
-            {
-                blipCoroutine = StartCoroutine(blipanimation());
-            }
-            else
-            {
-                start = Time.timeSinceLevelLoad;
-            }
+        //if (Input.GetKeyDown(KeyCode.Space))                                            //blip if
+        //{
+        //    count++;
+        //    massx.text = "Mass: " + count.ToString();
+        //    if (blipCoroutine == null)
+        //    {
+        //        blipCoroutine = StartCoroutine(blipanimation());
+        //    }
+        //    else
+        //    {
+        //        start = Time.timeSinceLevelLoad;
+        //    }
 
-        }
-        if (health <= 0)
-        {
-            showLose();
-        }
+        //}
+        //if (health <= 0)
+        //{
+        //    showLose();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Escape))                   //options
-        {
-            if (Time.timeScale == 1)
-            {
-                Time.timeScale = 0;
-                showPause();
-            }
-            else if (Time.timeScale == 0)
-            {
-                Debug.Log("high");
-                Time.timeScale = 1;
-                hidePause();
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))                   //options
+        //{
+        //    if (Time.timeScale == 1)
+        //    {
+        //        Time.timeScale = 0;
+        //        showPause();
+        //    }
+        //    else if (Time.timeScale == 0)
+        //    {
+        //        Debug.Log("high");
+        //        Time.timeScale = 1;
+        //        hidePause();
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.W))                    //win
-        {
-            showWin();
-        }
+        //if (Input.GetKeyDown(KeyCode.W))                    //win
+        //{
+        //    showWin();
+        //}
     }
 
     
@@ -177,6 +177,9 @@ public class HiddenMsgs : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-
-
+    //health
+    public void setHealth(int h)
+    {
+        hull.text = "Hull Integrity: " + h.ToString() + "%";
+    }
 }

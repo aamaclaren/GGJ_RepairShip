@@ -12,11 +12,11 @@ public class bulletLogic : MonoBehaviour
 
     private float m_startTime;
 
+    public bool fromEnemy = true;
+
 
 
     private Vector3 dir;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -43,13 +43,20 @@ public class bulletLogic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-    
-        if (other.tag == "Player") destorySelf();
+
+        //Debug.Log(other.tag);
+        if(fromEnemy&&other.tag == "Player") destorySelf();
     }
 
     private void destorySelf() {
 
-        if (gameObject!=null) Destroy(gameObject);
+        ResourcePoolMember rpm = gameObject.GetComponent<ResourcePoolMember>();
+        if(rpm != null) {
+            rpm.Despawn();
+        }
+        else {
+            Destroy(gameObject);
+        }
     }
 
 

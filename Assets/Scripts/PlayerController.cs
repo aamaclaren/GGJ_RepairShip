@@ -11,6 +11,13 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed = 90f;
     //max speed of object
     public float maxspeed = 100;
+    public ConnectionSystem cs;
+    // public Material hurtMaterial;
+    public bool playerIsInvincible = false;
+    public float spinningTime = 1f;
+    public int spinningSpeed = 500;
+    public float invincibilityTime = 1.5f;
+    public int numFlashes = 5;
     Rigidbody rb;
     float horizontal;
     float vertical;
@@ -22,6 +29,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cs = GetComponent<ConnectionSystem>();
     }
 
     private void Update()
@@ -51,7 +59,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    rb.AddTorque(torqueSpeed * (horizontal * Vector3.up));
+                    rb.AddRelativeTorque(torqueSpeed * (horizontal * Vector3.up));
                     if (rb.angularVelocity.y > maxAngularSpeed)
                     {
                         rb.angularVelocity = Vector3.up * maxAngularSpeed;
@@ -59,27 +67,32 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        Debug.Log(rb.angularVelocity);
+        //Debug.Log(rb.angularVelocity);
     }
 
     public IEnumerator Spinning()
     {
         spinning = true;
-        rb.maxAngularVelocity = 7;
-        yield return new WaitForSeconds(3f);
-        Debug.Log("freeze");
+        // rb.maxAngularVelocity = 7;
+        float timer = 0f;
+        while (timer < spinningTime) {
+            transform.RotateAround(transform.position, transform.up, Time.deltaTime * spinningSpeed);
+            timer += Time.deltaTime;
+            yield return new WaitForSeconds(0);
+        }
+        // yield return new WaitForSeconds(3f);
+        // Debug.Log("freeze");
         //rb.constraints = RigidbodyConstraints.FreezeRotation;
-        yield return new WaitForSeconds(.1f);
-        if (spinning)
-        {
-            rb.angularVelocity = Vector3.zero;
-        }
-        else
-        {
-            rb.constraints = RigidbodyConstraints.None;
-            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
-            rb.maxAngularVelocity = 3;
-        }
+        // yield return new WaitForSeconds(.1f);
+         if (spinning)
+         {
+             rb.angularVelocity = Vector3.zero;
+         }
+         else
+         {
+             rb.constraints = RigidbodyConstraints.None;
+             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+         }
         spinning = false;
         
     }
@@ -87,5 +100,48 @@ public class PlayerController : MonoBehaviour
     public void StartSpinning()
     {
         StartCoroutine(Spinning());
+    }
+
+    public IEnumerator Flashing() {
+        playerIsInvincible = true;
+        cs.isConnectable = false;
+        float iTimePerFlash = invincibilityTime / (numFlashes * 2 - 1);
+        List<GameObject> meshChildren = new List<GameObject>();
+        Color meshColor = GetComponent<Renderer>().material.color;
+        List<Color> meshChildrenColors = new List<Color>();
+        foreach (Transform child in GetComponentsInChildren<Transform>()) {
+            if (child.gameObject.GetComponent<MeshRenderer>() != null) { // || child.gameObject.GetComponent<Renderer>() != null
+                meshChildren.Add(child.gameObject);
+                meshChildrenColors.Add(child.gameObject.GetComponent<Renderer>().material.color);
+            }
+        }
+        for (int i = 0; i < numFlashes; i++)
+        {
+            // GetComponent<Renderer>().material = hurtMaterial;
+            // yield return new WaitForSeconds(iTimePerFlash);
+            // GetComponent<Renderer>().material = defaultPlayerMaterial;
+            // if (i < numFlashes - 1) {
+            //     yield return new WaitForSeconds(iTimePerFlash);
+            // }
+            GetComponent<Renderer>().material.color = Color.red;
+            for (int j = 0; j < meshChildren.Count; j++) {
+                meshChildren[j].GetComponent<Renderer>().material.color = Color.red;
+            }
+            yield return new WaitForSeconds(iTimePerFlash);
+            GetComponent<Renderer>().material.color = meshColor;
+            for (int j = 0; j < meshChildren.Count; j++) {
+                meshChildren[j].GetComponent<Renderer>().material.color = meshChildrenColors[j];
+            }
+            if (i < numFlashes - 1) {
+                yield return new WaitForSeconds(iTimePerFlash);
+            }
+        }
+        playerIsInvincible = false;
+        cs.isConnectable = true;
+    }
+
+    public void StartFlashing()
+    {
+        StartCoroutine(Flashing());
     }
 }

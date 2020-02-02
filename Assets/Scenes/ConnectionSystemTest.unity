@@ -802,10 +802,10 @@ GameObject:
   - component: {fileID: 1269737714}
   - component: {fileID: 1269737713}
   - component: {fileID: 1269737712}
+  - component: {fileID: 1269737717}
   - component: {fileID: 1269737716}
   - component: {fileID: 1269737719}
   - component: {fileID: 1269737718}
-  - component: {fileID: 1269737717}
   m_Layer: 8
   m_Name: Ship
   m_TagString: Untagged
@@ -917,7 +917,12 @@ MonoBehaviour:
   speed: 20
   rotationSpeed: 90
   maxspeed: 20
-  health: 100
+  cs: {fileID: 0}
+  playerIsInvincible: 0
+  spinningTime: 1
+  spinningSpeed: 800
+  invincibilityTime: 1.5
+  numFlashes: 5
 --- !u!54 &1269737718
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -980,13 +985,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1269737711}
-  playerCS: {fileID: 0}
   sounds:
   - {fileID: 637742721}
   playerHealth: 100
-  playerIsInvincible: 0
-  invincibilityTime: 1.5
-  numFlashes: 5
 --- !u!4 &1328302165
 Transform:
   m_ObjectHideFlags: 0

@@ -18,7 +18,12 @@ public class ShootingLogic : MonoBehaviour
     [SerializeField]
     private List<Transform> fire_pos;
 
-    public bulletLogic bullet;
+    public GameObject bullet;
+    
+    [SerializeField]
+    private int poolSize = 100;
+    private ResourcePool pool;
+    private GameObject bulletObjContainer;
 
 
     private bool isfire;
@@ -40,6 +45,8 @@ public class ShootingLogic : MonoBehaviour
 
 
         m_player = GameObject.FindGameObjectWithTag("Player");
+
+        InitializeBulletResourcePool();
     }
 
     // Update is called once per frame
@@ -69,7 +76,8 @@ public class ShootingLogic : MonoBehaviour
 
                     foreach (Transform t in fire_pos)
                     {
-                        bulletLogic new_bullet = Instantiate(bullet, t.position, Quaternion.Euler(90, 0, 0));
+                        bulletLogic new_bullet = pool.Spawn(t.position, Quaternion.Euler(90, 0, 0)).GetComponent<bulletLogic>();
+                        Debug.Log(new_bullet.name);
                         new_bullet.setSpeed(BulletSpeed);
                         new_bullet.setDir(t.forward);
                         //new_CannoBall.dir = m_player.transform.position - fire_pos.transform.position;
@@ -88,6 +96,18 @@ public class ShootingLogic : MonoBehaviour
                 }
 
             }
+        }
+    }
+
+    private void InitializeBulletResourcePool() {
+        pool = new ResourcePool(bullet, poolSize);
+
+        string bulletsContainerName = "Bullets";
+        bulletObjContainer = GameObject.Find(bulletsContainerName);
+
+        if(bulletObjContainer == null)
+        {
+            bulletObjContainer = new GameObject(bulletsContainerName);
         }
     }
 

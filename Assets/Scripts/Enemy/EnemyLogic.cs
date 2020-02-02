@@ -338,7 +338,7 @@ public class EnemyLogic : MonoBehaviour
         {
             GM.gm.player.GetComponent<PlayerController>().StartSpinning();
             
-            GM.gm.player.GetComponent<Rigidbody>().AddTorque(Vector3.up * 1000);
+            // GM.gm.player.GetComponent<Rigidbody>().AddTorque(Vector3.up * 1000);
             //Destroy(gameObject);
             
         }

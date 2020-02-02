@@ -33,24 +33,7 @@ public class Turrets : MonoBehaviour
             Debug.Log("fired");
             if (time > firingInterval)
             {
-                line.enabled = true;
-                if (source != null) {
-                    source.Play();
-                }
-                Ray ray = new Ray(transform.position, transform.forward);
-                line.SetPosition(0, ray.origin);
-                if (Physics.Raycast(ray, out hit))
-                {
-                    Debug.Log(hit.collider.gameObject);
-                    line.SetPosition(1, hit.collider.gameObject.transform.position);
-                    //Damage health here
-                    
-                }
-                else
-                {
-                    line.SetPosition(1, ray.GetPoint(100));
-                }
-                time = 0;
+                Fire();
             }
             else
             {
@@ -61,5 +44,28 @@ public class Turrets : MonoBehaviour
         {
             line.enabled = false;
         }
+    }
+
+    public void Fire()
+    {
+        line.enabled = true;
+        if (source != null)
+        {
+            source.Play();
+        }
+        Ray ray = new Ray(transform.position, transform.forward);
+        line.SetPosition(0, ray.origin);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.Log(hit.collider.gameObject);
+            line.SetPosition(1, hit.collider.gameObject.transform.position);
+            //Damage health here
+
+        }
+        else
+        {
+            line.SetPosition(1, ray.GetPoint(100));
+        }
+        time = 0;
     }
 }
